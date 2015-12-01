@@ -12,12 +12,9 @@ public class Main {
   public static void main(String[] args)
   {
 
-    Logic lg=new Logic();
-    ServerConnection sc=new ServerConnection();
+    LoginController lg = new LoginController();
 
-    lg.login("HeinHero","321");
-
-    sc.get("users");
+    lg.run();
 
   }
 

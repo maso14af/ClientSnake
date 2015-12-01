@@ -47,7 +47,7 @@ public class ServerConnection {
 
     }
 
-    public void post(String json, String path){
+    public int post(String json, String path){
 
         Client client = Client.create();
 
@@ -62,5 +62,8 @@ public class ServerConnection {
         String output = response.getEntity(String.class);
         System.out.println(output);
 
+        int responser = response.getStatus();
+
+        return responser;
     }
 }

@@ -121,6 +121,15 @@ public class LoginScreen extends JPanel
 	}
 
 	/**
+	 * Getters for btnLogin
+	 * @return btnLogin
+	 */
+	public JButton getBtnLogin()
+	{
+		return btnLogin;
+	}//metode slut
+
+	/**
 	 * opretter actionlistener for dette panel
 	 * @param l
 	 */

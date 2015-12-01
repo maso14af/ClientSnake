@@ -57,7 +57,7 @@ public class LoginController
 
                 if(logic.login(username, password)) {
 
-                    screen.show(screen.MenuScreen);
+                    screen.show(screen.MENUSCREEN);
 
                 }else {
                     screen.getLoginScreen().getLblError().setVisible(true);
@@ -94,7 +94,7 @@ public class LoginController
             }//if slut
 
             //Hvis brugeren trykker på High Scores
-            if (e.getSource() == screen.getMenuScreen().getBtnHighscores())
+            if (e.getSource() == screen.getMenuScreen().getBtnHighScore())
             {
 
 

@@ -7,7 +7,7 @@ import com.google.gson.Gson;
  */
 public class Logic {
 
-    public static void login(String username, String password){
+    public boolean login(String username, String password){
 
         ServerConnection serverConnection = new ServerConnection();
 
@@ -17,7 +17,15 @@ public class Logic {
 
         String json = new Gson().toJson(user);
 
-        serverConnection.post(json, "login/");
+       if (serverConnection.post(json, "login/")==200){
+           return true;
+       }else {
+           System.out.println("login failed in logic.login");
+
+           return false;
+       }
+
+
 
 
     }
