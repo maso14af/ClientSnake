@@ -59,7 +59,7 @@ public class CreateGameScreen extends JPanel
 		btnHome = new JButton();
 		try 
 		{
-			Image imgHome = ImageIO.read(getClass().getResource("res/btnHome.png"));
+			Image imgHome = ImageIO.read(getClass().getResource("/res/btnHome.png"));
 			btnHome.setIcon(new ImageIcon(imgHome));
 		} 
 		catch (IOException ex) 
