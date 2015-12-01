@@ -27,7 +27,7 @@ public class LoginController
     }//konstruktør slut
 
     /**
-     * metoden Main klassen kalder for at starte programmet
+     * metoden Main klassen kaldes for at starte programmet
      */
     public void run()
     {
@@ -49,19 +49,18 @@ public class LoginController
         @Override
         public void actionPerformed(ActionEvent e)
         {
-            //der trykked på login knap
+            //Når der trykkes på login
             if (e.getSource() == screen.getLoginScreen().getBtnLogin())
             {
                 String username = screen.getLoginScreen().getTxtUser().getText();
                 String password = screen.getLoginScreen().getTxtPassword().getText();
 
-
                 if(logic.login(username,password)) {
 
-                    screen.show(screen.USERMENU);
+                    screen.show(screen.MenuScreen);
 
                 }else {
-                    screen.getLogin().getLblError().setVisible(true);
+                    screen.getLoginScreen().getLblError().setVisible(true);
                 }
 
 
@@ -69,7 +68,7 @@ public class LoginController
 
             }//if listener slut
         }//actionPerformed slut
-    }//inner class slit
+    }//inner class slut
 
     /**
      * inner class
@@ -81,42 +80,42 @@ public class LoginController
         @Override
         public void actionPerformed(ActionEvent e)
         {
-            //hvis brugeren trykker view belance knap
-            if (e.getSource() == screen.getUserMenu().getBtnCreateGame())
+            //Hvis brugeren trykker på Create Game
+            if (e.getSource() == screen.getMenuScreen().getBtnCreateGame())
             {
 
 
             }//if slut
 
-            //hvis brugeren trykker withdraw knap
-            if (e.getSource() == screen.getUserMenu().getBtnDeleteGame())
+            //Hvis brugeren trykker på delete game
+            if (e.getSource() == screen.getMenuScreen().getBtnDeleteGame())
             {
 
             }//if slut
 
-            //hvis brugeren trykker deposit knap
-            if (e.getSource() == screen.getUserMenu().getBtnHighscores())
+            //Hvis brugeren trykker på High Scores
+            if (e.getSource() == screen.getMenuScreen().getBtnHighscores())
             {
 
 
             }//if slut
 
-            //hvis brugeren trykker transfer knap
-            if (e.getSource() == screen.getUserMenu().getBtnLogout())
+            //Hvis brugeren trykker på Menu Screen.
+            if (e.getSource() == screen.getMenuScreen().getBtnLogout())
             {
 
             }//if slut
 
             //hvis brugeren trykker log af knap
-            if (e.getSource() == screen.getUserMenu().getBtnHome())
+            if (e.getSource() == screen.getMenuScreen().getBtnHome())
             {
                 //sender videre til valgte panel
-                screen.show(Screen.LOGIN);
+                screen.show(Screen.LOGINSCREEN);
 
                 //resetter felterne
-                screen.getLogin().getTxtUser().setText("");
-                screen.getLogin().getTxtPassword().setText("");
-                screen.getLogin().getLblError().setVisible(false);
+                screen.getLoginScreen().getTxtUser().setText("");
+                screen.getLoginScreen().getTxtPassword().setText("");
+                screen.getLoginScreen().getLblError().setVisible(false);
             }
 
         }//actionPerformed slut

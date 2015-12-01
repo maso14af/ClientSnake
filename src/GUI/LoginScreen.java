@@ -94,9 +94,18 @@ public class LoginScreen extends JPanel
 	 * Getters for txtPassword
 	 * @return txtPassword
 	 */
-	public JTextField getTxtPassword() 
+	public JTextField getTxtPassword()
 	{
 		return txtPassword;
+	}//metode slut
+
+	/**
+	 * Getters for btnLogin
+	 * @return btnLogin
+	 */
+	public JButton getbtnLogin()
+	{
+		return btnLogin;
 	}//metode slut
 
 	public void setLblError(JLabel lblError) {
@@ -104,9 +113,18 @@ public class LoginScreen extends JPanel
 	}
 
 	/**
+	 * Getter for lblError
+	 * @return lblError
+	 */
+	public JLabel getLblError() {
+		return lblError;
+	}
+
+	/**
 	 * opretter actionlistener for dette panel
 	 * @param l
 	 */
+
 	public void addActionListener(ActionListener l) 
 	{
 		btnLogin.addActionListener(l);

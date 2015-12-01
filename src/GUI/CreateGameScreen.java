@@ -26,6 +26,7 @@ public class CreateGameScreen extends JPanel
 	private JButton btnHome;
 	private JLabel lblGameName;
 	private JTextField txtControls;
+	private JButton btnCreateGame;
 
 	public CreateGameScreen() 
 	{
@@ -87,27 +88,31 @@ public class CreateGameScreen extends JPanel
 	
 	
 	/**
-	 * Getter for txtUserToTransfer
-	 * @return txtUserToTransfer
+	 * Getter for txtControls
+	 * @return txtControls
 	 */
 	public JTextField getTxtControls() 
 	{
 		return txtControls;
 	}//metode slut
-	
+
 	/**
-	 * Getter for txtUserToTransfer
-	 * @return txtUserToTransfer
+	 * Getter for txtGameName
+	 * @return txtGameName
 	 */
-	public JTextField getTxtGameName() 
+	public JTextField getTxtGameName()
 	{
 		return txtGameName;
 	}//metode slut
 
-
-
-
-
+	/**
+	 * Getter for txtUserToTransfer
+	 * @return txtUserToTransfer
+	 */
+	public JButton getBtnCreateGame()
+	{
+		return btnCreateGame;
+	}//metode slut
 
 
 	/**
@@ -117,6 +122,7 @@ public class CreateGameScreen extends JPanel
 	public void addActionListener(ActionListener l) 
 	{
 		btnHome.addActionListener(l);
+		btnCreateGame.addActionListener(l);
 		
 	}//metode slut
 }//klasse slut

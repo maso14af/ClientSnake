@@ -70,7 +70,7 @@ public class MenuScreen extends JPanel
 		btnDeleteGame.setBounds(210, 226, 117, 29);
 		add(btnDeleteGame);
 		
-		JButton btnLogout = new JButton("Logout");
+		JButton btnLogout = new JButton("Log out");
 		btnLogout.setBounds(210, 267, 117, 29);
 		add(btnLogout);
 		
