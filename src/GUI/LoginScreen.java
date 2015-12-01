@@ -4,7 +4,6 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.JButton;
-
 import java.awt.Color;
 import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
@@ -66,7 +65,7 @@ public class LoginScreen extends JPanel
 
 		//opretter,giver attributter og adder logoet 
 		lblLogo = new JLabel("");
-		lblLogo.setIcon(new ImageIcon(LoginScreen.class.getResource("/Snake.jpg")));
+		lblLogo.setIcon(new ImageIcon(LoginScreen.class.getResource("/res/Snake.jpg")));
 		lblLogo.setBounds(94, 33, 325, 158);
 		add(lblLogo);
 
