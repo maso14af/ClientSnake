@@ -27,7 +27,64 @@ public class MenuScreen extends JPanel
 	private JButton btnDeleteGame;
 	private JButton btnJoinGame;
 	private JButton btnLogout;
-	
+
+	public void setLblMenu(JLabel lblMenu) {
+		this.lblMenu = lblMenu;
+	}
+
+	public void setBtnHome(JButton btnHome) {
+		this.btnHome = btnHome;
+	}
+
+	public void setBtnCreateGame(JButton btnCreateGame) {
+		this.btnCreateGame = btnCreateGame;
+	}
+
+	public void setBtnHighScore(JButton btnHighScore) {
+		this.btnHighScore = btnHighScore;
+	}
+
+	public void setBtnDeleteGame(JButton btnDeleteGame) {
+		this.btnDeleteGame = btnDeleteGame;
+	}
+
+	public void setBtnJoinGame(JButton btnJoinGame) {
+		this.btnJoinGame = btnJoinGame;
+	}
+
+	public void setBtnLogout(JButton btnLogout) {
+		this.btnLogout = btnLogout;
+	}
+
+	public JLabel getLblMenu() {
+
+		return lblMenu;
+	}
+
+	public JButton getBtnHome() {
+		return btnHome;
+	}
+
+	public JButton getBtnCreateGame() {
+		return btnCreateGame;
+	}
+
+	public JButton getBtnHighScore() {
+		return btnHighScore;
+	}
+
+	public JButton getBtnDeleteGame() {
+		return btnDeleteGame;
+	}
+
+	public JButton getBtnJoinGame() {
+		return btnJoinGame;
+	}
+
+	public JButton getBtnLogout() {
+		return btnLogout;
+	}
+
 	/**
 	 * Create the panel.
 	 */
@@ -53,6 +110,7 @@ public class MenuScreen extends JPanel
 		} 
 		catch (IOException ex) 
 		{
+
 		}
 		btnHome.setBounds(16, 10, 42, 38);
 		add(btnHome);

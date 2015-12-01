@@ -55,7 +55,7 @@ public class LoginController
                 String username = screen.getLoginScreen().getTxtUser().getText();
                 String password = screen.getLoginScreen().getTxtPassword().getText();
 
-                if(logic.login(username,password)) {
+                if(logic.login(username, password)) {
 
                     screen.show(screen.MenuScreen);
 

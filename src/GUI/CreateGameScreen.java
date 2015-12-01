@@ -105,15 +105,6 @@ public class CreateGameScreen extends JPanel
 		return txtGameName;
 	}//metode slut
 
-	/**
-	 * Getter for txtUserToTransfer
-	 * @return txtUserToTransfer
-	 */
-	public JButton getBtnCreateGame()
-	{
-		return btnCreateGame;
-	}//metode slut
-
 
 	/**
 	 * opretter actionlisternes for dette panel
@@ -123,6 +114,6 @@ public class CreateGameScreen extends JPanel
 	{
 		btnHome.addActionListener(l);
 		btnCreateGame.addActionListener(l);
-		
+
 	}//metode slut
 }//klasse slut
