@@ -28,38 +28,7 @@ public class MenuScreen extends JPanel
 	private JButton btnJoinGame;
 	private JButton btnLogout;
 
-	public void setLblMenu(JLabel lblMenu) {
-		this.lblMenu = lblMenu;
-	}
 
-	public void setBtnHome(JButton btnHome) {
-		this.btnHome = btnHome;
-	}
-
-	public void setBtnCreateGame(JButton btnCreateGame) {
-		this.btnCreateGame = btnCreateGame;
-	}
-
-	public void setBtnHighScore(JButton btnHighScore) {
-		this.btnHighScore = btnHighScore;
-	}
-
-	public void setBtnDeleteGame(JButton btnDeleteGame) {
-		this.btnDeleteGame = btnDeleteGame;
-	}
-
-	public void setBtnJoinGame(JButton btnJoinGame) {
-		this.btnJoinGame = btnJoinGame;
-	}
-
-	public void setBtnLogout(JButton btnLogout) {
-		this.btnLogout = btnLogout;
-	}
-
-	public JLabel getLblMenu() {
-
-		return lblMenu;
-	}
 
 	public JButton getBtnHome() {
 		return btnHome;
@@ -120,19 +89,19 @@ public class MenuScreen extends JPanel
 		btnCreateGame.setBounds(210, 103, 117, 29);
 		add(btnCreateGame);
 		
-		JButton btnHighScore = new JButton("High Score");
+		btnHighScore = new JButton("High Score");
 		btnHighScore.setBounds(210, 185, 117, 29);
 		add(btnHighScore);
 		
-		JButton btnDeleteGame = new JButton("Delete game");
+		btnDeleteGame = new JButton("Delete game");
 		btnDeleteGame.setBounds(210, 226, 117, 29);
 		add(btnDeleteGame);
 		
-		JButton btnLogout = new JButton("Log out");
+		btnLogout = new JButton("Log out");
 		btnLogout.setBounds(210, 267, 117, 29);
 		add(btnLogout);
 		
-		JButton btnJoinGame = new JButton("Join Game");
+		btnJoinGame = new JButton("Join Game");
 		btnJoinGame.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}

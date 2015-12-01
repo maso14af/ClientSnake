@@ -1,5 +1,6 @@
 package SDK;
 
+import GUI.LoginScreen;
 import com.google.gson.Gson;
 
 /**
@@ -9,6 +10,7 @@ public class Logic {
 
     public boolean login(String username, String password){
 
+
         ServerConnection serverConnection = new ServerConnection();
 
         User user = new User();
@@ -16,6 +18,7 @@ public class Logic {
         user.setUsername(username);
 
         String json = new Gson().toJson(user);
+        System.out.println(json);
 
        if (serverConnection.post(json, "login/")==200){
            return true;
