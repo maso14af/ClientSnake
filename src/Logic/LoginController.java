@@ -12,6 +12,7 @@ import java.awt.event.ActionListener;
 public class LoginController
 {
     public GUI.Screen screen;
+    public MenuScreenController msc;
 
 
     /**
@@ -20,6 +21,7 @@ public class LoginController
     public LoginController()
     {
         screen = new Screen();
+        msc = new MenuScreenController(screen);
 
 
 
@@ -34,10 +36,12 @@ public class LoginController
 
         // Injection af listeners i panels
         screen.loginScreen.addActionListener(new LoginActionListener());
-        screen.getMenuScreen().addActionListener(new MenuScreenController.MenuScreenActionListener());
-
+        //screen.getMenuScreen().addActionListener(new MenuScreenController.MenuScreenActionListener());
         // vis startskaerm
+        msc.run();
         screen.show(Screen.LOGINSCREEN);
+
+
     }
 
 
@@ -54,6 +58,7 @@ public class LoginController
                 String password = screen.getLoginScreen().getTxtPassword().getText();
 
                 if(logic.login(username, password)) {
+
 
                     screen.show(screen.MENUSCREEN);
 
@@ -73,7 +78,7 @@ public class LoginController
      * UserMenu panel actionlistener
      * Styrer menu screen
      */
-    private class MenuScreenActionListener implements ActionListener
+    /*private class MenuScreenActionListener implements ActionListener
     {
         @Override
         public void actionPerformed(ActionEvent e)
@@ -121,7 +126,7 @@ public class LoginController
             }
 
         }//actionPerformed slut
-    }//inner class slut
+    }//inner class slut*/
 
 
 

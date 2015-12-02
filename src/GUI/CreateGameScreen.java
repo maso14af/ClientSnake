@@ -51,20 +51,17 @@ public class CreateGameScreen extends JPanel
 		//opretter,giver attributter og adder GameName textfield
 		txtGameName = new JTextField();
 		txtGameName.setBounds(196, 192, 200, 28);
-		txtGameName.setEditable(false);
 		add(txtGameName);
 		txtGameName.setColumns(10);
 
 		//opretter,giver attributter og adder home knap
 		btnHome = new JButton();
-		try 
-		{
+
 			Image imgHome = ImageIO.read(getClass().getResource("/res/btnHome.png"));
 			btnHome.setIcon(new ImageIcon(imgHome));
-		} 
-		catch (IOException ex) 
-		{
-		}
+
+
+
 		btnHome.setBounds(16, 10, 42, 38);
 		add(btnHome);
 

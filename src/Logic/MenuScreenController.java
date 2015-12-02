@@ -11,14 +11,15 @@ import java.awt.event.ActionListener;
 
 public class MenuScreenController
 {
-    public GUI.Screen screen;
+    public Screen screen;
 
 
     /**
      * Opretter konstruktur. Laver objekt af screen.
      */
-    public MenuScreenController()
+    public MenuScreenController(Screen screen)
     {
+        this.screen = screen;
         screen = new Screen();
 
 
@@ -26,13 +27,18 @@ public class MenuScreenController
         screen.setVisible(true);
     }//konstruktør slut
 
+    public void run()
+    {
+        screen.getMenuScreen().addActionListener(new MenuScreenActionListener());
+    }
+
 
     /**
      * inner class
      * UserMenu panel actionlistener
      * Styrer menu screen
      */
-    /*public class MenuScreenActionListener implements ActionListener
+    private class MenuScreenActionListener implements ActionListener
     {
         @Override
         public void actionPerformed(ActionEvent e)
@@ -85,4 +91,3 @@ public class MenuScreenController
 
 }//Klasse slut
 
-*/
