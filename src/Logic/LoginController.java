@@ -73,7 +73,7 @@ public class LoginController
     /**
      * inner class
      * UserMenu panel actionlistener
-     * Styre user menu
+     * Styrer menu screen
      */
     private class UserMenuActionListener implements ActionListener
     {
@@ -107,12 +107,12 @@ public class LoginController
             }//if slut
 
             //hvis brugeren trykker log af knap
-            if (e.getSource() == screen.getMenuScreen().getBtnHome())
+            if (e.getSource() == screen.getMenuScreen().getBtnLogout())
             {
                 //sender videre til valgte panel
                 screen.show(Screen.LOGINSCREEN);
 
-                //resetter felterne
+                //Resetter felterne
                 screen.getLoginScreen().getTxtUser().setText("");
                 screen.getLoginScreen().getTxtPassword().setText("");
                 screen.getLoginScreen().getLblError().setVisible(false);
