@@ -52,14 +52,8 @@ public class JoinGameScreen extends JPanel
 
 		//opretter,giver attributter og adder home knap
 		btnHome = new JButton();
-		try 
-		{
-			Image imgHome = ImageIO.read(getClass().getResource("/res/btnHome.png"));
-			btnHome.setIcon(new ImageIcon(imgHome));
-		} 
-		catch (IOException ex) 
-		{
-		}
+		Image imgHome = new ImageIcon(this.getClass().getResource("/res/btnHome.png")).getImage();
+		btnHome.setIcon(new ImageIcon(imgHome));
 		btnHome.setBounds(16, 10, 42, 38);
 		add(btnHome);
 
