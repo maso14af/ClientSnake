@@ -12,7 +12,6 @@ import java.awt.event.ActionListener;
 public class MenuScreenController
 {
     public Screen screen;
-    CreateGameController cgc;
 
 
     /**
@@ -22,7 +21,6 @@ public class MenuScreenController
     {
         this.screen = screen;
         screen = new Screen();
-        cgc = new CreateGameController(screen);
 
 
 
@@ -32,7 +30,8 @@ public class MenuScreenController
     public void run()
     {
         screen.getMenuScreen().addActionListener(new MenuScreenActionListener());
-        cgc.run();
+        screen.getCreateGameScreen().addActionListener(new CreateGameActionListener());
+
     }
 
 
@@ -87,6 +86,22 @@ public class MenuScreenController
                 screen.getLoginScreen().getTxtPassword().setText("");
                 screen.getLoginScreen().getLblError().setVisible(false);
             }
+
+        }//actionPerformed slut
+    }//inner class slut
+
+    private class CreateGameActionListener implements ActionListener
+    {
+        @Override
+        public void actionPerformed(ActionEvent e)
+        {
+            //Hvis brugeren trykker på Home knap
+            if (e.getSource() == screen.getCreateGameScreen().getBtnHome())
+            {
+                screen.show(Screen.MENUSCREEN);
+
+            }//if slut
+
 
         }//actionPerformed slut
     }//inner class slut
