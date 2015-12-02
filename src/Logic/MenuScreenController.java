@@ -12,6 +12,7 @@ import java.awt.event.ActionListener;
 public class MenuScreenController
 {
     public Screen screen;
+    CreateGameController cgc;
 
 
     /**
@@ -21,6 +22,7 @@ public class MenuScreenController
     {
         this.screen = screen;
         screen = new Screen();
+        cgc = new CreateGameController(screen);
 
 
 
@@ -30,6 +32,7 @@ public class MenuScreenController
     public void run()
     {
         screen.getMenuScreen().addActionListener(new MenuScreenActionListener());
+        cgc.run();
     }
 
 

@@ -13,12 +13,9 @@ public class CreateGameController
 {
     public GUI.Screen screen;
 
-
-    /**
-     * Opretter konstruktur. Laver objekt af screen.
-     */
-    public CreateGameController()
+    public CreateGameController(Screen screen)
     {
+        this.screen = screen;
         screen = new Screen();
 
 
@@ -26,19 +23,23 @@ public class CreateGameController
         screen.setVisible(true);
     }//konstruktør slut
 
+    public void run()
+    {
+        screen.getCreateGameScreen().addActionListener(new CreateGameActionListener());
+    }
 
     /**
      * inner class
      * UserMenu panel actionlistener
      * Styrer menu screen
      */
-    private class UserMenuActionListener implements ActionListener
+    private class CreateGameActionListener implements ActionListener
     {
         @Override
         public void actionPerformed(ActionEvent e)
         {
             //Hvis brugeren trykker på Create Game
-            if (e.getSource() == screen.getMenuScreen().getBtnCreateGame())
+            if (e.getSource() == screen.getCreateGameScreen().getBtnCreateGame());
             {
             System.out.print("Input detected");
 

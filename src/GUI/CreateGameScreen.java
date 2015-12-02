@@ -28,7 +28,15 @@ public class CreateGameScreen extends JPanel
 	private JTextField txtControls;
 	private JButton btnCreateGame;
 
-	public CreateGameScreen() 
+	public JButton getBtnHome() {
+		return btnHome;
+	}
+
+	public JButton getBtnCreateGame() {
+		return btnCreateGame;
+	}
+
+	public CreateGameScreen()
 	{
 		setLayout(null);
 		setBackground(new Color(102, 153, 204));
@@ -56,14 +64,14 @@ public class CreateGameScreen extends JPanel
 
 		//opretter,giver attributter og adder home knap
 		btnHome = new JButton();
-
-			Image imgHome = ImageIO.read(getClass().getResource("/res/btnHome.png"));
-			btnHome.setIcon(new ImageIcon(imgHome));
-
-
-
+		Image imgHome = new ImageIcon(this.getClass().getResource("/res/btnHome.png")).getImage();
+		btnHome.setIcon(new ImageIcon(imgHome));
 		btnHome.setBounds(16, 10, 42, 38);
 		add(btnHome);
+
+
+
+
 
 		//opretter,giver attributter og adder GameName label
 		lblGameName = new JLabel("Game name:");

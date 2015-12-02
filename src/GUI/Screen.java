@@ -73,9 +73,15 @@ public class Screen extends JFrame
 		c = (CardLayout) getContentPane().getLayout();
 		
 	}//metode slut
-	
+
+
+	public GUI.CreateGameScreen getCreateGameScreen() {
+		return CreateGameScreen;
+	}
+
 	/**
 	 * Getter for loginScreen
+
 	 * @return loginScreen
 	 */
 	public LoginScreen getLoginScreen() 
