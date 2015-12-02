@@ -83,27 +83,31 @@ public class LoginController
             //Hvis brugeren trykker på Create Game
             if (e.getSource() == screen.getMenuScreen().getBtnCreateGame())
             {
-
+            screen.show(Screen.CREATEGAMESCREEN);
 
             }//if slut
 
             //Hvis brugeren trykker på delete game
             if (e.getSource() == screen.getMenuScreen().getBtnDeleteGame())
             {
-
+            screen.show(Screen.DELETEGAMESCREEN);
             }//if slut
 
             //Hvis brugeren trykker på High Scores
             if (e.getSource() == screen.getMenuScreen().getBtnHighScore())
             {
+              screen.show(Screen.HIGHSCORESCREEN);
 
 
             }//if slut
 
-            //Hvis brugeren trykker på Menu Screen.
-            if (e.getSource() == screen.getMenuScreen().getBtnLogout())
+            //Hvis brugeren trykker på Join Game .
+            if (e.getSource() == screen.getMenuScreen().getBtnJoinGame())
             {
+            screen.show(Screen.JOINGAMESCREEN);
 
+               //Resetter evt. tekst i felterne.
+               // screen.getJoinGameScreen().getTxtGameName().setText("");
             }//if slut
 
             //hvis brugeren trykker log af knap
