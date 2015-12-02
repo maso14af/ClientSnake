@@ -30,7 +30,7 @@ public class MenuScreenController
     public void run()
     {
         screen.getMenuScreen().addActionListener(new MenuScreenActionListener());
-        screen.getCreateGameScreen().addActionListener(new CreateGameActionListener());
+        //screen.getCreateGameScreen().addActionListener(new CreateGameActionListener());
 
     }
 
@@ -87,24 +87,31 @@ public class MenuScreenController
                 screen.getLoginScreen().getLblError().setVisible(false);
             }
 
-        }//actionPerformed slut
-    }//inner class slut
-
-    private class CreateGameActionListener implements ActionListener
-    {
-        @Override
-        public void actionPerformed(ActionEvent e)
-        {
-            //Hvis brugeren trykker på Home knap
             if (e.getSource() == screen.getCreateGameScreen().getBtnHome())
             {
+                System.out.print("This be working");
                 screen.show(Screen.MENUSCREEN);
-
-            }//if slut
-
+                System.out.print("This be working2");
+            }
 
         }//actionPerformed slut
     }//inner class slut
+
+//    private class CreateGameActionListener implements ActionListener
+//    {
+//        @Override
+//        public void actionPerformed(ActionEvent e)
+//        {
+//            //Hvis brugeren trykker på Home knap
+//            if (e.getSource() == screen.getCreateGameScreen().getBtnHome())
+//            {
+//                screen.show(Screen.MENUSCREEN);
+//
+//            }//if slut
+//
+//
+//        }//actionPerformed slut
+//    }//inner class slut
 
 
 }//Klasse slut
