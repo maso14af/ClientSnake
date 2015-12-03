@@ -32,8 +32,8 @@ public class MenuScreenController
         screen.getMenuScreen().addActionListener(new MenuScreenActionListener());
         screen.getCreateGameScreen().addActionListener(new CreateGameActionListener());
         screen.getDeleteGameScreen().addActionListener(new DeleteGameActionListener());
-        screen.getDeleteGameScreen().addActionListener(new JoinGameActionListener());
-        screen.getDeleteGameScreen().addActionListener(new HighScoreActionListener());
+        screen.getJoinGameScreen().addActionListener(new JoinGameActionListener());
+        screen.getHighScoreScreen().addActionListener(new HighScoreActionListener());
 
     }
 
