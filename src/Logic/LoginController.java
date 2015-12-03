@@ -135,7 +135,7 @@ public class LoginController
 
             }//if slut
 
-            if (e.getSource() == screen.getCreateGameScreen().getBtnCreateGame()){
+            /*if (e.getSource() == screen.getCreateGameScreen().getBtnCreateGame()){
                 String gamename = screen.getCreateGameScreen().getTxtGameName().getText();
                 String moves = screen.getCreateGameScreen().getTxtControls().getText();
 
@@ -147,7 +147,7 @@ public class LoginController
                 }
 
 
-            }
+            }*/
 
         }//actionPerformed slut
     }//inner class slut
