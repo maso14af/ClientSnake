@@ -1,53 +1,49 @@
 package SDK;
 
-import com.google.gson.Gson;
-
-
 /**
  * Created by Martin on 18/11/15.
  */
+
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.util.ArrayList;
+
 public class Logic {
 
-    User currentUser = new User();
-    Api api;
+    User currentUser = new User ();
 
-    ServerConnection serverConnection = new ServerConnection();
 
     public boolean login(String username, String password){
-
 
         ServerConnection serverConnection = new ServerConnection();
 
         User user = new User();
-        user.setUsername(username);
         user.setPassword(password);
-
+        user.setUsername(username);
 
         String json = new Gson().toJson(user);
-        System.out.println(json);
 
-       if (serverConnection.post(json, "login/")==200){
+        serverConnection.post(json, "login/");
 
-          for(User users:   SDK.Api.getUsers() ){
+        System.out.printf(json);
 
-              if(users.getUsername().equals(username)){
+        if(serverConnection.post(json, "login/")==200){
 
-                  currentUser = users;
-              }
+            for (User users : SDK.Logic.getUser()){
 
-          }
+                if (users.getUsername().equals(username))
+                {
+                    currentUser = users;
+                }
 
-
-           return true;
-       }else {
-           System.out.println("login failed in logic.login");
-
-           return false;
-       }
+            }
 
 
-
-
+            return true;
+        }else {
+            return false;
+        }
     }
     public static void createUser(User user){
 
@@ -55,7 +51,17 @@ public class Logic {
     public static void deleteUser(int userId){
 
     }
-    public static void getUser(int userId){
+    public static ArrayList<User> getUser(){
+
+        ServerConnection serverConnection = new ServerConnection();
+
+        String json = serverConnection.get("users/");
+
+        //henyer users ned i en arrayList
+        ArrayList<User> users = new Gson().fromJson(json, new TypeToken<ArrayList<User>>(){}.getType());
+
+        return users;
+
 
     }
     public static void getGame(int gameId){
@@ -77,10 +83,10 @@ public class Logic {
 
 
         Game game = new Game();
-
         game.setName(name);
         game.setHost(host);
-        game.setMapSize(25);
+        game.setMapSize(15);
+
 
         String json = new Gson().toJson(game);
 
@@ -95,11 +101,5 @@ public class Logic {
     }
     public static void deleteGame(int gameId){
 
-
-
     }
-
-
-
-
 }

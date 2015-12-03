@@ -21,7 +21,7 @@ public class LoginController
     public LoginController()
     {
         screen = new Screen();
-        msc = new MenuScreenController(screen);
+        //msc = new MenuScreenController(screen);
 
 
 
@@ -34,12 +34,13 @@ public class LoginController
     public void run()
     {
 
-        msc = new MenuScreenController(screen);
+        //msc = new MenuScreenController(screen);
 
         // Injection af listeners i panels
         screen.loginScreen.addActionListener(new LoginActionListener());
+        screen.loginScreen.addActionListener(new MenuScreenActionListener());
         // vis startskaerm
-        msc.run();
+        //msc.run();
         screen.show(Screen.LOGINSCREEN);
 
 
@@ -79,7 +80,7 @@ public class LoginController
      * UserMenu panel actionlistener
      * Styrer menu screen
      */
-    /*private class MenuScreenActionListener implements ActionListener
+    private class MenuScreenActionListener implements ActionListener
     {
         @Override
         public void actionPerformed(ActionEvent e)
@@ -88,46 +89,36 @@ public class LoginController
             if (e.getSource() == screen.getMenuScreen().getBtnCreateGame())
             {
             screen.show(Screen.CREATEGAMESCREEN);
-
             }//if slut
-
             //Hvis brugeren trykker på delete game
             if (e.getSource() == screen.getMenuScreen().getBtnDeleteGame())
             {
             screen.show(Screen.DELETEGAMESCREEN);
             }//if slut
-
             //Hvis brugeren trykker på High Scores
             if (e.getSource() == screen.getMenuScreen().getBtnHighScore())
             {
               screen.show(Screen.HIGHSCORESCREEN);
-
-
             }//if slut
-
             //Hvis brugeren trykker på Join Game .
             if (e.getSource() == screen.getMenuScreen().getBtnJoinGame())
             {
             screen.show(Screen.JOINGAMESCREEN);
-
                //Resetter evt. tekst i felterne.
                // screen.getJoinGameScreen().getTxtGameName().setText("");
             }//if slut
-
             //hvis brugeren trykker log af knap
             if (e.getSource() == screen.getMenuScreen().getBtnLogout())
             {
                 //sender videre til valgte panel
                 screen.show(Screen.LOGINSCREEN);
-
                 //Resetter felterne
                 screen.getLoginScreen().getTxtUser().setText("");
                 screen.getLoginScreen().getTxtPassword().setText("");
                 screen.getLoginScreen().getLblError().setVisible(false);
             }
-
         }//actionPerformed slut
-    }//inner class slut*/
+    }//inner class slut
 
 
 

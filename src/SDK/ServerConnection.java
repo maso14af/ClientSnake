@@ -40,7 +40,7 @@ public class ServerConnection {
         WebResource webResource = client.resource(getHostAddress() + ":" + getPort() + "/api/" + path);
         ClientResponse response = webResource.type("application/json").get(ClientResponse.class);
 
-
+        System.out.print("Her går det galt");
         String message = response.getEntity(String.class);
         System.out.println(message);
 

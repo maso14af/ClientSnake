@@ -114,7 +114,7 @@ public class MenuScreenController
 
                 if(logic.createGame(gamename,moves)){
 
-                    System.out.println("MARTIN HAS CREATED A MOTHERFUCLING GAME");
+                    System.out.println("Game has been createdid");
 
                 }
 
@@ -176,4 +176,3 @@ public class MenuScreenController
 
 
 }//Klasse slut
-
