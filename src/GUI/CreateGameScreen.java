@@ -85,7 +85,7 @@ public class CreateGameScreen extends JPanel
 		txtControls.setBounds(196, 230, 200, 28);
 		add(txtControls);
 		
-		JButton btnCreateGame = new JButton("Create Game");
+		btnCreateGame = new JButton("Create Game");
 		btnCreateGame.setBounds(196, 265, 200, 29);
 		add(btnCreateGame);
 
