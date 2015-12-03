@@ -8,6 +8,9 @@ import com.google.gson.Gson;
  */
 public class Logic {
 
+    User currentUser = new User();
+    Api api;
+
     public boolean login(String username, String password){
 
 
@@ -22,6 +25,17 @@ public class Logic {
         System.out.println(json);
 
        if (serverConnection.post(json, "login/")==200){
+
+          for(User users: api.getUsers() ){
+
+              if(users.getUsername().equals(username)){
+
+                  currentUser = users;
+              }
+
+          }
+
+
            return true;
        }else {
            System.out.println("login failed in logic.login");
