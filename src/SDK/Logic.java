@@ -1,7 +1,9 @@
 package SDK;
 
-import GUI.LoginScreen;
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.util.ArrayList;
 
 /**
  * Created by Martin on 18/11/15.
@@ -10,6 +12,8 @@ public class Logic {
 
     User currentUser = new User();
     Api api;
+
+    ServerConnection serverConnection = new ServerConnection();
 
     public boolean login(String username, String password){
 
@@ -26,7 +30,7 @@ public class Logic {
 
        if (serverConnection.post(json, "login/")==200){
 
-          for(User users: api.getUsers() ){
+          for(User users:   SDK.Api.getUsers() ){
 
               if(users.getUsername().equals(username)){
 
@@ -84,6 +88,8 @@ public class Logic {
 
 
     }
+
+
 
 
 }
