@@ -34,6 +34,8 @@ public class LoginController
     public void run()
     {
 
+        msc = new MenuScreenController(screen);
+
         // Injection af listeners i panels
         screen.loginScreen.addActionListener(new LoginActionListener());
         // vis startskaerm

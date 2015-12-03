@@ -2,6 +2,7 @@ package Logic;
 
 
 import GUI.Screen;
+import SDK.Logic;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -12,6 +13,7 @@ import java.awt.event.ActionListener;
 public class MenuScreenController
 {
     public Screen screen;
+    Logic logic = new Logic();
 
 
     /**
@@ -105,6 +107,19 @@ public class MenuScreenController
 
             }//if slut
 
+            if (e.getSource() == screen.getCreateGameScreen().getBtnCreateGame()){
+                String gamename = screen.getCreateGameScreen().getTxtGameName().getText();
+                String moves = screen.getCreateGameScreen().getTxtControls().getText();
+
+
+                if(logic.createGame(gamename,moves)){
+
+                    System.out.println("MARTIN HAS CREATED A MOTHERFUCLING GAME");
+
+                }
+
+
+            }
 
         }//actionPerformed slut
     }//inner class slut
@@ -120,6 +135,8 @@ public class MenuScreenController
                 screen.show(Screen.MENUSCREEN);
 
             }//if slut
+
+
 
 
         }//actionPerformed slut
