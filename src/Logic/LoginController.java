@@ -2,6 +2,7 @@ package Logic;
 
 
 import GUI.Screen;
+import SDK.Logic;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -21,6 +22,7 @@ public class LoginController
     public LoginController()
     {
         screen = new Screen();
+        Logic logic = new Logic();
         //msc = new MenuScreenController(screen);
 
 
@@ -38,7 +40,8 @@ public class LoginController
 
         // Injection af listeners i panels
         screen.loginScreen.addActionListener(new LoginActionListener());
-        screen.loginScreen.addActionListener(new MenuScreenActionListener());
+        screen.getMenuScreen().addActionListener(new MenuScreenActionListener());
+        screen.getCreateGameScreen().addActionListener(new CreateGameActionListener());
         // vis startskaerm
         //msc.run();
         screen.show(Screen.LOGINSCREEN);
@@ -117,6 +120,35 @@ public class LoginController
                 screen.getLoginScreen().getTxtPassword().setText("");
                 screen.getLoginScreen().getLblError().setVisible(false);
             }
+        }//actionPerformed slut
+    }//inner class slut
+
+    private class CreateGameActionListener implements ActionListener
+    {
+        @Override
+        public void actionPerformed(ActionEvent e)
+        {
+            //Hvis brugeren trykker på Home knap
+            if (e.getSource() == screen.getCreateGameScreen().getBtnHome())
+            {
+                screen.show(Screen.MENUSCREEN);
+
+            }//if slut
+
+            if (e.getSource() == screen.getCreateGameScreen().getBtnCreateGame()){
+                String gamename = screen.getCreateGameScreen().getTxtGameName().getText();
+                String moves = screen.getCreateGameScreen().getTxtControls().getText();
+
+
+                if(SDK.Logic.createGame(gamename,moves)){
+
+                    System.out.println("Game has been created");
+
+                }
+
+
+            }
+
         }//actionPerformed slut
     }//inner class slut
 
