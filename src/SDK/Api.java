@@ -17,16 +17,16 @@ public class Api {
         serverConnection = new ServerConnection();
     }
 
-    public static ArrayList<User> getUsers ()
-    {
+    public static ArrayList<User> getUsers () {
         ServerConnection serverConnection = new ServerConnection();
 
         String jsonData = serverConnection.get("users/");
 
-        ArrayList<User> users = new Gson().fromJson(jsonData, new TypeToken<ArrayList<User>>(){}.getType());
+        ArrayList<User> users = new Gson().fromJson(jsonData, new TypeToken<ArrayList<User>>() {
+        }.getType());
 
         return users;
-
+    }
 
 
 }

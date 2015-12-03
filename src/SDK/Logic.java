@@ -67,20 +67,32 @@ public class Logic {
     public static void startGame(int gameId){
 
     }
-    /*public static void createGame(String name, int status){
+    public boolean createGame(String name, String moves){
 
         ServerConnection serverConnection = new ServerConnection();
 
+        Gamer host = new Gamer();
+        host.setId(currentUser.getId());
+        host.setControls(moves);
+
+
         Game game = new Game();
+
         game.setName(name);
-        //game.setHost();
-        game.setStatus(status);
+        game.setHost(host);
+        game.setMapSize(25);
 
         String json = new Gson().toJson(game);
 
-        serverConnection.post(json, "create");
+        int response = serverConnection.post(json,"games/");
 
-    }*/
+        if(response==201){
+            return true;
+        }
+
+        return false;
+
+    }
     public static void deleteGame(int gameId){
 
 
