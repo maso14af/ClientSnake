@@ -97,7 +97,16 @@ public class Screen extends JFrame
 	{
 		return menuScreen;
 	}//metode slut
-	
+
+	public GUI.JoinGameScreen getJoinGameScreen() {
+		return JoinGameScreen;
+	}
+
+	public GUI.HighScoreScreen getHighScoreScreen() {
+
+		return HighScoreScreen;
+	}
+
 	/**
 	 * Getter for deleteGame
 	 * @return DeleteGameScreen

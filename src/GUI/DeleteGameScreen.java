@@ -29,7 +29,11 @@ public class DeleteGameScreen extends JPanel
 	private JLabel lblErrorNoGame;
 	private JButton btnDeleteGame;
 
-	public DeleteGameScreen() 
+	public JButton getBtnHome() {
+		return btnHome;
+	}
+
+	public DeleteGameScreen()
 	{
 		setLayout(null);
 		setBackground(new Color(102, 153, 204));
@@ -70,6 +74,7 @@ public class DeleteGameScreen extends JPanel
 		lblErrorNoGame.setBounds(157, 252, 267, 28);
 		lblErrorNoGame.setVisible(false);
 		add(lblErrorNoGame);
+
 		
 		btnDeleteGame = new JButton("Delete Game");
 		btnDeleteGame.addActionListener(new ActionListener() {

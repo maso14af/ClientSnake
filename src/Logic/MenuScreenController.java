@@ -31,6 +31,9 @@ public class MenuScreenController
     {
         screen.getMenuScreen().addActionListener(new MenuScreenActionListener());
         screen.getCreateGameScreen().addActionListener(new CreateGameActionListener());
+        screen.getDeleteGameScreen().addActionListener(new DeleteGameActionListener());
+        screen.getDeleteGameScreen().addActionListener(new JoinGameActionListener());
+        screen.getDeleteGameScreen().addActionListener(new HighScoreActionListener());
 
     }
 
@@ -97,6 +100,54 @@ public class MenuScreenController
         {
             //Hvis brugeren trykker på Home knap
             if (e.getSource() == screen.getCreateGameScreen().getBtnHome())
+            {
+                screen.show(Screen.MENUSCREEN);
+
+            }//if slut
+
+
+        }//actionPerformed slut
+    }//inner class slut
+
+    private class DeleteGameActionListener implements ActionListener
+    {
+        @Override
+        public void actionPerformed(ActionEvent e)
+        {
+            //Hvis brugeren trykker på Home knap
+            if (e.getSource() == screen.getDeleteGameScreen().getBtnHome())
+            {
+                screen.show(Screen.MENUSCREEN);
+
+            }//if slut
+
+
+        }//actionPerformed slut
+    }//inner class slut
+
+    private class HighScoreActionListener implements ActionListener
+    {
+        @Override
+        public void actionPerformed(ActionEvent e)
+        {
+            //Hvis brugeren trykker på Home knap
+            if (e.getSource() == screen.getHighScoreScreen().getBtnHome())
+            {
+                screen.show(Screen.MENUSCREEN);
+
+            }//if slut
+
+
+        }//actionPerformed slut
+    }//inner class slut
+
+    private class JoinGameActionListener implements ActionListener
+    {
+        @Override
+        public void actionPerformed(ActionEvent e)
+        {
+            //Hvis brugeren trykker på Home knap
+            if (e.getSource() == screen.getJoinGameScreen().getBtnHome())
             {
                 screen.show(Screen.MENUSCREEN);
 

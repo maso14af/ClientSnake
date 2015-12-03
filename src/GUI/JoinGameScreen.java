@@ -29,7 +29,11 @@ public class JoinGameScreen extends JPanel
 	private JLabel lblErrorNoGame;
 	private JButton btnJoinGame;
 
-	public JoinGameScreen() 
+	public JButton getBtnHome() {
+		return btnHome;
+	}
+
+	public JoinGameScreen()
 	{
 		setLayout(null);
 		setBackground(new Color(102, 153, 204));
@@ -56,6 +60,7 @@ public class JoinGameScreen extends JPanel
 		btnHome.setIcon(new ImageIcon(imgHome));
 		btnHome.setBounds(16, 10, 42, 38);
 		add(btnHome);
+
 
 		//opretter,giver attributter og adder GameName label
 		lblGameName = new JLabel("Game name:");

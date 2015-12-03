@@ -36,7 +36,6 @@ public class LoginController
 
         // Injection af listeners i panels
         screen.loginScreen.addActionListener(new LoginActionListener());
-        //screen.getMenuScreen().addActionListener(new MenuScreenController.MenuScreenActionListener());
         // vis startskaerm
         msc.run();
         screen.show(Screen.LOGINSCREEN);
