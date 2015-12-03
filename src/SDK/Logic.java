@@ -50,7 +50,7 @@ public class Logic {
     public static void startGame(int gameId){
 
     }
-    public static void createGame(String name, int status){
+    /*public static void createGame(String name, int status){
 
         ServerConnection serverConnection = new ServerConnection();
 
@@ -63,7 +63,7 @@ public class Logic {
 
         serverConnection.post(json, "create");
 
-    }
+    }*/
     public static void deleteGame(int gameId){
 
 

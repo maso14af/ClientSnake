@@ -1,68 +1,86 @@
 package SDK;
 
-import java.util.Date;
+import java.sql.Date;
 
 /**
- * Created by Martin on 18/11/15.
+ * Created by Peter on 12-10-2015.
  */
+
 public class Game {
-
+    //Creating the variables needed for the game
     private int gameId;
-    private int result;
-    private int newGame;
-    private int endGame;
+    private Gamer winner;
     private String name;
-    private String hostControls;
-    private User host;
-    private User opponent;
-    private String opponentControls;
-    private int status;
+    private Gamer host;
+    private Gamer opponent;
+    private String status;
     private Date created;
+    private int mapSize;
 
-    public void setGameId(int gameId) {
-        this.gameId = gameId;
-    }
+    public Game(){}
 
-    public void setResult(int result) {
-        this.result = result;
-    }
-
-    public void setNewGame(int newGame) {
-        this.newGame = newGame;
-    }
-
-    public void setEndGame(int endGame) {
-        this.endGame = endGame;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setHostControls(String hostControls) {
-        this.hostControls = hostControls;
-    }
-
-    public void setHost(User host) {
-        this.host = host;
-    }
-
-    public void setOpponent(User opponent) {
-        this.opponent = opponent;
-    }
-
-    public void setOpponentControls(String opponentControls) {
-        this.opponentControls = opponentControls;
-    }
-
-    public void setStatus(int status) {
-        this.status = status;
+    public Date getCreated() {
+        return created;
     }
 
     public void setCreated(Date created) {
         this.created = created;
     }
 
+    public int getMapSize() {
+        return mapSize;
+    }
 
+    public void setMapSize(int mapSize) {
+        this.mapSize = mapSize;
+    }
 
-}
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    //Creating get/set method for all the variables, so they can be used by other classes
+    public int getGameId(){
+        return gameId;
+    }
+
+    public void setGameId(int gameId){
+        this.gameId = gameId;
+    }
+
+    public Gamer getHost(){
+        return host;
+    }
+
+    public void setHost(Gamer host){
+        this.host = host;
+    }
+
+    public Gamer getOpponent(){
+        return opponent;
+    }
+
+    public void setOpponent(Gamer opponent){
+        this.opponent = opponent;
+    }
+
+    public String getStatus(){
+        return status;
+    }
+
+    public void setStatus(String status){
+        this.status = status;
+    }
+
+    public Gamer getWinner() {
+        return winner;
+    }
+
+    public void setWinner(Gamer winner) {
+        this.winner = winner;
+    }
+} //end of class
