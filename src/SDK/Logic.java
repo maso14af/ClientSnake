@@ -1,9 +1,7 @@
 package SDK;
 
 import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 
-import java.util.ArrayList;
 
 /**
  * Created by Martin on 18/11/15.
