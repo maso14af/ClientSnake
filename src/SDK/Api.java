@@ -1,5 +1,8 @@
 package SDK;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
 import java.util.ArrayList;
 
 /**
@@ -16,7 +19,11 @@ public class Api {
 
     public ArrayList<User> getUsers ()
     {
+        String jsonData = serverConnection.get("users/");
 
+        ArrayList<User> users = new Gson().fromJson(jsonData, new TypeToken<ArrayList<User>>(){}.getType());
+
+        return users;
     }
 
 

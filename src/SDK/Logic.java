@@ -14,8 +14,9 @@ public class Logic {
         ServerConnection serverConnection = new ServerConnection();
 
         User user = new User();
-        user.setPassword(password);
         user.setUsername(username);
+        user.setPassword(password);
+
 
         String json = new Gson().toJson(user);
         System.out.println(json);

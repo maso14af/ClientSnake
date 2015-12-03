@@ -33,7 +33,7 @@ public class ServerConnection {
         return port;
     }
 
-    public void get(String path){
+    public String get(String path){
 
         Client client = Client.create();
 
@@ -41,10 +41,11 @@ public class ServerConnection {
         ClientResponse response = webResource.type("application/json").get(ClientResponse.class);
 
 
-        String output = response.getEntity(String.class);
-        System.out.println(output);
+        String message = response.getEntity(String.class);
+        System.out.println(message);
 
 
+        return message;
     }
 
     public int post(String json, String path){
