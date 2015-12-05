@@ -242,6 +242,7 @@ public class Controller
                 {
                 logic.startGame(game);
                     System.out.println("Game has been joined and started");
+                    screen.getJoinGameScreen().getLblGameJoined().setVisible(true);
                 } else
                     screen.getJoinGameScreen().getLblErrorNoGame().setVisible(true);
                     System.out.println("Game was not joined");
@@ -272,6 +273,7 @@ public class Controller
                 if  (response == 200)
                 {
                     System.out.print("Game was deleted");
+                    screen.getDeleteGameScreen().getLblGameDeleted().setVisible(true);
                 }
                 else
 

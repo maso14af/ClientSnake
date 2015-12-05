@@ -31,7 +31,11 @@ public class DeleteGameScreen extends JPanel
 	private JLabel lblWrongInput;
     private JLabel lblGameDeleted;
 
-	public JButton getBtnHome() {
+    public JLabel getLblGameDeleted() {
+        return lblGameDeleted;
+    }
+
+    public JButton getBtnHome() {
 		return btnHome;
 	}
 

@@ -28,6 +28,10 @@ public class JoinGameScreen extends JPanel
 	private JTextField txtGameName;
 	private JLabel lblGameJoined;
 
+	public JLabel getLblGameJoined() {
+		return lblGameJoined;
+	}
+
 	public JButton getBtnJoinGame() {
 		return btnJoinGame;
 	}
