@@ -45,6 +45,8 @@ public class Controller
         screen.getMenuScreen().addActionListener(new MenuScreenActionListener());
         screen.getCreateGameScreen().addActionListener(new CreateGameActionListener());
         screen.getJoinGameScreen().addActionListener(new JoinGameActionListener());
+        screen.getDeleteGameScreen().addActionListener(new DeleteGameActionListener());
+        screen.getHighScoreScreen().addActionListener(new HighScoreActionListener());
         // vis startskaerm
         screen.show(Screen.LOGINSCREEN);
 
@@ -192,18 +194,62 @@ public class Controller
             if (e.getSource() == screen.getJoinGameScreen().getBtnHome())
             {
                 screen.show(Screen.MENUSCREEN);
+            }//if slut
+            if (e.getSource() == screen.getJoinGameScreen().getBtnJoinGame())
+            {
+               // String gameName = screen.getJoinGameScreen().getTxtGameName().getText();
+                String moves = screen.getJoinGameScreen().getTxtControls().getText();
 
+                Gamer opponent = new Gamer();
+                opponent.setId(currentUser.getId());
+                opponent.setControls(moves);
+
+
+                Game game = new Game();
+                game.setOpponent(opponent);
+
+                for (Game g : logic.openGames())
+                {
+                    if (g.getName().equals(screen.getJoinGameScreen().getTxtGameName().getText()))
+                    {
+                        game.setGameId(g.getGameId());
+                    }
+                }
+                int response = logic.joinGame(game);
+                if (response == 201)
+                {
+                logic.startGame(game);
+                    System.out.println("Game has been joined and started");
+                }
+                else System.out.println("Game was not joined");
+            }
+        }//actionPerformed slut
+    }//inner class slut
+
+    private class DeleteGameActionListener implements ActionListener
+    {
+        @Override
+        public void actionPerformed(ActionEvent e)
+        {
+            //Hvis brugeren trykker på Home knap
+            if (e.getSource() == screen.getDeleteGameScreen().getBtnHome())
+            {
+                screen.show(Screen.MENUSCREEN);
             }//if slut
 
+        }//actionPerformed slut
+    }//inner class slut
 
-                /*if(logic.createGame(gamename, moves)){
-
-                    System.out.println("Game has been created");
-
-                }*/
-
-
-
+    private class HighScoreActionListener implements ActionListener
+    {
+        @Override
+        public void actionPerformed(ActionEvent e)
+        {
+            //Hvis brugeren trykker på Home knap
+            if (e.getSource() == screen.getHighScoreScreen().getBtnHome())
+            {
+                screen.show(Screen.MENUSCREEN);
+            }//if slut
 
         }//actionPerformed slut
     }//inner class slut
