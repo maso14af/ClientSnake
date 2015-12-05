@@ -55,7 +55,6 @@ public class JoinGameScreen extends JPanel
 		//opretter,giver attributter og adder game name textfield
 		txtControls = new JTextField();
 		txtControls.setBounds(196, 192, 200, 28);
-		txtControls.setEditable(false);
 		add(txtControls);
 		txtControls.setColumns(10);
 
@@ -78,7 +77,6 @@ public class JoinGameScreen extends JPanel
 		lblErrorNoGame.setHorizontalAlignment(SwingConstants.CENTER);
 		lblErrorNoGame.setForeground(Color.RED);
 		lblErrorNoGame.setBounds(157, 252, 267, 28);
-		lblErrorNoGame.setVisible(false);
 		add(lblErrorNoGame);
 
 		btnJoinGame = new JButton("Join Game");
