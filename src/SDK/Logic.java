@@ -63,7 +63,7 @@ public class Logic {
 
     public int deleteGame (int gameId)
     {
-        int json = serverConnection.delete("/games/"+gameId+"/");
+        int json = serverConnection.delete("games/" +gameId+ "/");
         return json;
     }
 }

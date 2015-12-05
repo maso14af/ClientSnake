@@ -239,7 +239,13 @@ public class Controller
 
             if (e.getSource() == screen.getDeleteGameScreen().getBtnDeleteGame())
             {
-
+                int gameId=Integer.parseInt(screen.getDeleteGameScreen().getTxtGameName().getText());
+                int response = logic.deleteGame(gameId);
+                if (response == 200)
+                {
+                    System.out.print("Game was deleted");
+                }
+                else System.out.print("Game was not deleted, try again");
             }
 
         }//actionPerformed slut
