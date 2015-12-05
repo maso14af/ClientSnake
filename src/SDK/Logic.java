@@ -19,14 +19,11 @@ public class Logic {
         ServerConnection serverConnection = new ServerConnection();
 
         User user = new User();
-        user.setPassword(password);
         user.setUsername(username);
+        user.setPassword(password);
+
 
         String json = new Gson().toJson(user);
-
-        serverConnection.post(json, "login/");
-
-        //System.out.printf(json);
 
         if(serverConnection.post(json, "login/")==200){
 
