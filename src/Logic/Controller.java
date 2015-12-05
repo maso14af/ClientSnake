@@ -176,7 +176,9 @@ public class Controller
                 {
                     System.out.print("Game has been created");
                 }
-                else System.out.print("Game was not created");
+                else
+                    System.out.print("Game was not created");
+                    screen.getDeleteGameScreen().getLblErrorNoGame().setVisible(true);
 
                 /*if(logic.createGame(gamename, moves)){
 
@@ -226,8 +228,7 @@ public class Controller
                 {
                 logic.startGame(game);
                     System.out.println("Game has been joined and started");
-                }
-                else
+                } else
                     screen.getJoinGameScreen().getLblErrorNoGame().setVisible(true);
                     System.out.println("Game was not joined");
             }
