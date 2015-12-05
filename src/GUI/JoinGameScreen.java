@@ -77,6 +77,7 @@ public class JoinGameScreen extends JPanel
 		lblErrorNoGame.setHorizontalAlignment(SwingConstants.CENTER);
 		lblErrorNoGame.setForeground(Color.RED);
 		lblErrorNoGame.setBounds(157, 252, 267, 28);
+		lblErrorNoGame.setVisible(false);
 		add(lblErrorNoGame);
 
 		btnJoinGame = new JButton("Join Game");
@@ -88,7 +89,6 @@ public class JoinGameScreen extends JPanel
 		add(btnJoinGame);
 
 		txtGameName = new JTextField();
-		txtGameName.setEditable(false);
 		txtGameName.setColumns(10);
 		txtGameName.setBounds(196, 152, 200, 28);
 		add(txtGameName);
