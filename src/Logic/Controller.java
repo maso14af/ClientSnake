@@ -14,7 +14,7 @@ import java.awt.event.ActionListener;
 
 
 
-public class LoginController
+public class Controller
 {
     private Screen screen;
     private Logic logic;
@@ -24,7 +24,7 @@ public class LoginController
     /**
      * Opretter konstruktur. Laver objekt af screen.
      */
-    public LoginController()
+    public Controller()
     {
         screen = new Screen();
         logic = new Logic();
