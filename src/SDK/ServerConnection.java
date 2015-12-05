@@ -51,12 +51,6 @@ public class ServerConnection {
 
         WebResource webResource = client.resource(getHostAddress() + ":" + getPort() + "/api/" + path);
         ClientResponse response = webResource.type("application/json").post(ClientResponse.class, json);
-
-        //if (response.getStatus() != 200 && response.getStatus() != 201) {
-        //    throw new RuntimeException("Failed : HTTP error code : "
-        //            + response.getStatus());
-        //}
-
         String output = response.getEntity(String.class);
         System.out.println(output);
 
@@ -71,12 +65,20 @@ public class ServerConnection {
 
         WebResource webResource = client.resource(getHostAddress() + ":" + getPort() + "/api/" + path);
         ClientResponse response = webResource.type("application/json").put(ClientResponse.class, json);
+        String output = response.getEntity(String.class);
+        System.out.println(output);
 
-        //if (response.getStatus() != 200 && response.getStatus() != 201) {
-        //    throw new RuntimeException("Failed : HTTP error code : "
-        //            + response.getStatus());
-        //}
+        int responser = response.getStatus();
 
+        return responser;
+    }
+
+    public int delete(String json, String path){
+
+        Client client = Client.create();
+
+        WebResource webResource = client.resource(getHostAddress() + ":" + getPort() + "/api/" + path);
+        ClientResponse response = webResource.type("application/json").delete(ClientResponse.class, json);
         String output = response.getEntity(String.class);
         System.out.println(output);
 
