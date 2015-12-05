@@ -19,19 +19,16 @@ import java.awt.event.ActionEvent;
  *
  *extends JPanel
  */
-public class JoinGameScreen extends JPanel 
+public class JoinGameScreen extends JPanel
 {
 	//Instantierer variabler
 	private JLabel lblJoinGame;
-	private JTextField txtGameName;
+	private JTextField txtControls;
 	private JButton btnHome;
-	private JLabel lblGameName;
+	private JLabel lblControls;
 	private JLabel lblErrorNoGame;
 	private JButton btnJoinGame;
-
-	public JButton getBtnHome() {
-		return btnHome;
-	}
+	private JTextField txtGameName;
 
 	public JoinGameScreen()
 	{
@@ -48,10 +45,11 @@ public class JoinGameScreen extends JPanel
 		add(lblJoinGame);
 
 		//opretter,giver attributter og adder game name textfield
-		txtGameName = new JTextField();
-		txtGameName.setBounds(196, 192, 200, 28);
-		add(txtGameName);
-		txtGameName.setColumns(10);
+		txtControls = new JTextField();
+		txtControls.setBounds(196, 192, 200, 28);
+		txtControls.setEditable(false);
+		add(txtControls);
+		txtControls.setColumns(10);
 
 		//opretter,giver attributter og adder home knap
 		btnHome = new JButton();
@@ -60,12 +58,11 @@ public class JoinGameScreen extends JPanel
 		btnHome.setBounds(16, 10, 42, 38);
 		add(btnHome);
 
-
 		//opretter,giver attributter og adder GameName label
-		lblGameName = new JLabel("Game name:");
-		lblGameName.setForeground(Color.WHITE);
-		lblGameName.setBounds(60, 198, 118, 16);
-		add(lblGameName);
+		lblControls = new JLabel("Controls:");
+		lblControls.setForeground(Color.WHITE);
+		lblControls.setBounds(60, 198, 118, 16);
+		add(lblControls);
 
 		//opretter,giver attributter og adder error label
 		lblErrorNoGame = new JLabel("No game by that name");
@@ -74,49 +71,68 @@ public class JoinGameScreen extends JPanel
 		lblErrorNoGame.setBounds(157, 252, 267, 28);
 		lblErrorNoGame.setVisible(false);
 		add(lblErrorNoGame);
-		
+
 		btnJoinGame = new JButton("Join Game");
 		btnJoinGame.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnJoinGame.setBounds(241, 224, 117, 29);
+		btnJoinGame.setBounds(241, 232, 117, 29);
 		add(btnJoinGame);
+
+		txtGameName = new JTextField();
+		txtGameName.setEditable(false);
+		txtGameName.setColumns(10);
+		txtGameName.setBounds(196, 152, 200, 28);
+		add(txtGameName);
+
+		JLabel lblGameName = new JLabel("Game name:");
+		lblGameName.setForeground(Color.WHITE);
+		lblGameName.setBounds(60, 158, 118, 16);
+		add(lblGameName);
 
 	}//metode slut
 
-	
+
 	/**
-	 * Getter for txtBalance
-	 * @return txtBalance
+	 * Getter for txtGameName
+	 * @return txtGameName
 	 */
-	public JTextField getTxtGameName() 
+	public JTextField getTxtGameName()
 	{
 		return txtGameName;
 	}//metode slut
-	
+
+	/**
+	 * Getter for Controls
+	 * @return txtControls
+	 */
+	public JTextField getTxtControls()
+	{
+		return txtControls;
+	}//metode slut
+
+
 	/**
 	 * Getter forlblErrorNoGame 
 	 * @return lblErrorNoGame
 	 */
-	public JLabel getLblErrorNoGame() 
+	public JLabel getLblErrorNoGame()
 	{
 		return lblErrorNoGame;
 	}//metode slut
 
 
-	public JButton getBtnJoinGame() {
-		return btnJoinGame;
-	}
+
+
 
 	/**
 	 * opretter actionlisternes for dette panel
 	 * @param l
 	 */
-	public void addActionListener(ActionListener l) 
+	public void addActionListener(ActionListener l)
 	{
 		btnHome.addActionListener(l);
 		btnJoinGame.addActionListener(l);
-
 	}//metode slut
 }//klasse slut
