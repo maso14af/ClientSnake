@@ -38,7 +38,13 @@ public class Logic {
 
     }
 
-    public boolean createGame(String name, String moves){
+    public int createGame(Game game)
+    {
+        int json = serverConnection.post(new Gson().toJson(game), "games/");
+        return json;
+    }
+
+    /*public boolean createGame(String name, String moves){
 
         ServerConnection serverConnection = new ServerConnection();
 
@@ -74,7 +80,7 @@ public class Logic {
 
         return false;
 
-    }
+    }*/
 
     public ArrayList<Game> openGames()
     {

@@ -143,15 +143,18 @@ public class LoginController
             }//if slut
 
             if (e.getSource() == screen.getCreateGameScreen().getBtnCreateGame()){
+
                 String gamename = screen.getCreateGameScreen().getTxtGameName().getText();
                 String moves = screen.getCreateGameScreen().getTxtControls().getText();
 
 
-                if(logic.createGame(gamename, moves)){
+
+
+                /*if(logic.createGame(gamename, moves)){
 
                     System.out.println("Game has been created");
 
-                }
+                }*/
 
 
             }
