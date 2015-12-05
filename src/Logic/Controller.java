@@ -200,11 +200,7 @@ public class Controller
                     screen.getCreateGameScreen().getLblErrorNoName().setVisible(true);
                     screen.getCreateGameScreen().getLblGameCreated().setVisible(false);
                 }
-                /*if(logic.createGame(gamename, moves)){
 
-                    System.out.println("Game has been created");
-
-                }*/
 
 
             }}
@@ -221,11 +217,25 @@ public class Controller
             //Hvis brugeren trykker på Home knap
             if (e.getSource() == screen.getJoinGameScreen().getBtnHome())
             {
+                screen.getJoinGameScreen().getLblNoControls().setVisible(false);
+                screen.getJoinGameScreen().getLblErrorNoGame().setVisible(false);
+                screen.getJoinGameScreen().getLblGameJoined().setVisible(false);
+                screen.getJoinGameScreen().getTxtControls().setText("");
+                screen.getJoinGameScreen().getTxtGameName().setText("");
                 screen.show(Screen.MENUSCREEN);
             }//if slut
             if (e.getSource() == screen.getJoinGameScreen().getBtnJoinGame())
             {
-               // String gameName = screen.getJoinGameScreen().getTxtGameName().getText();
+                if(screen.getJoinGameScreen().getTxtGameName().getText().equals("")
+                    ||screen.getJoinGameScreen().getTxtControls().getText().equals(""))
+                {
+                System.out.print("Enter controls and game name");
+                screen.getJoinGameScreen().getLblNoControls().setVisible(true);
+                screen.getJoinGameScreen().getLblErrorNoGame().setVisible(false);
+                screen.getJoinGameScreen().getLblGameJoined().setVisible(false);
+            }
+                else
+                {
                 String moves = screen.getJoinGameScreen().getTxtControls().getText();
 
                 Gamer opponent = new Gamer();
@@ -250,10 +260,13 @@ public class Controller
                     System.out.println("Game has been joined and started");
                     screen.getJoinGameScreen().getLblGameJoined().setVisible(true);
                     screen.getJoinGameScreen().getLblErrorNoGame().setVisible(false);
+                    screen.getJoinGameScreen().getLblNoControls().setVisible(false);
                 } else if (response == 400){
                     screen.getJoinGameScreen().getLblErrorNoGame().setVisible(true);
                     screen.getJoinGameScreen().getLblGameJoined().setVisible(false);
+                    screen.getJoinGameScreen().getLblNoControls().setVisible(false);
                     System.out.println("Game was not joined");
+                }
                 }
             }
         }//actionPerformed slut

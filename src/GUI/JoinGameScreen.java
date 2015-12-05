@@ -27,6 +27,11 @@ public class JoinGameScreen extends JPanel
 	private JButton btnJoinGame;
 	private JTextField txtGameName;
 	private JLabel lblGameJoined;
+	private JLabel lblNoControls;
+
+	public JLabel getLblNoControls() {
+		return lblNoControls;
+	}
 
 	public JLabel getLblGameJoined() {
 		return lblGameJoined;
@@ -82,13 +87,21 @@ public class JoinGameScreen extends JPanel
 		lblErrorNoGame.setVisible(false);
 		add(lblErrorNoGame);
 
-		//opretter,giver attributter og adder error label
+		//opretter,giver attributter og adder label
 		lblGameJoined = new JLabel("Game joined");
 		lblGameJoined.setHorizontalAlignment(SwingConstants.CENTER);
 		lblGameJoined.setForeground(Color.RED);
 		lblGameJoined.setBounds(157, 252, 267, 28);
 		lblGameJoined.setVisible(false);
 		add(lblGameJoined);
+
+		//opretter,giver attributter og adder error label
+		lblNoControls = new JLabel("Controls and/ or game name are needed");
+		lblNoControls.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNoControls.setForeground(Color.RED);
+		lblNoControls.setBounds(157, 252, 267, 28);
+		lblNoControls.setVisible(false);
+		add(lblNoControls);
 
 		btnJoinGame = new JButton("Join Game");
 		btnJoinGame.addActionListener(new ActionListener() {
