@@ -51,7 +51,7 @@ public class Logic {
 
     public ArrayList<Game> openGames()
     {
-        ServerConnection serverConnection = new ServerConnection();
+        //ServerConnection serverConnection = new ServerConnection();
 
         String json = serverConnection.get("games/open/");
 
@@ -65,5 +65,14 @@ public class Logic {
     {
         int json = serverConnection.delete("games/" +gameId+ "/");
         return json;
+    }
+
+    public ArrayList<Score> getHighScores()
+    {
+        String json = serverConnection.get("highScores/");
+        ArrayList<Score> highScores = new Gson().fromJson(json, new TypeToken<ArrayList<Score>>() {
+        }.getType());
+
+        return highScores;
     }
 }
