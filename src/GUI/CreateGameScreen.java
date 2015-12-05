@@ -27,6 +27,11 @@ public class CreateGameScreen extends JPanel
 	private JLabel lblGameName;
 	private JTextField txtControls;
 	private JButton btnCreateGame;
+	private JLabel lblErrorNoGame;
+
+	public JLabel getLblErrorNoGame() {
+		return lblErrorNoGame;
+	}
 
 	public JButton getBtnHome() {
 		return btnHome;
@@ -70,7 +75,13 @@ public class CreateGameScreen extends JPanel
 		add(btnHome);
 
 
-
+		//opretter,giver attributter og adder error label
+		lblErrorNoGame = new JLabel("No game by that name");
+		lblErrorNoGame.setHorizontalAlignment(SwingConstants.CENTER);
+		lblErrorNoGame.setForeground(Color.RED);
+		lblErrorNoGame.setBounds(157, 252, 267, 28);
+		lblErrorNoGame.setVisible(false);
+		add(lblErrorNoGame);
 
 
 		//opretter,giver attributter og adder GameName label

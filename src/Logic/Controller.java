@@ -178,7 +178,7 @@ public class Controller
                 }
                 else
                     System.out.print("Game was not created");
-                    screen.getDeleteGameScreen().getLblErrorNoGame().setVisible(true);
+                    screen.getCreateGameScreen().getLblErrorNoGame().setVisible(true);
 
                 /*if(logic.createGame(gamename, moves)){
 
@@ -245,12 +245,14 @@ public class Controller
             {
                 screen.show(Screen.MENUSCREEN);
             }//if slut
-
+            //Hvis brugeren trykker på delete Game
+            try
+            {
             if (e.getSource() == screen.getDeleteGameScreen().getBtnDeleteGame())
             {
                 int gameId=Integer.parseInt(screen.getDeleteGameScreen().getTxtGameName().getText());
                 int response = logic.deleteGame(gameId);
-                if (response == 200)
+                if  (response == 200)
                 {
                     System.out.print("Game was deleted");
                 }
@@ -258,6 +260,11 @@ public class Controller
 
                     System.out.print("Game was not deleted, try again");
 
+            }
+            } catch (Exception e1)
+            {
+                System.out.print("To delete a game type the ID with int");
+                screen.getDeleteGameScreen().getLblWrongInput().setVisible(true);
             }
 
         }//actionPerformed slut

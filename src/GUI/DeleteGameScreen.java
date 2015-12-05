@@ -28,9 +28,14 @@ public class DeleteGameScreen extends JPanel
 	private JLabel lblGameName;
 	private JLabel lblErrorNoGame;
 	private JButton btnDeleteGame;
+	private JLabel lblWrongInput;
 
 	public JButton getBtnHome() {
 		return btnHome;
+	}
+
+	public JLabel getLblWrongInput() {
+		return lblWrongInput;
 	}
 
 	public DeleteGameScreen()
@@ -73,6 +78,14 @@ public class DeleteGameScreen extends JPanel
 		lblErrorNoGame.setBounds(157, 252, 267, 28);
 		lblErrorNoGame.setVisible(false);
 		add(lblErrorNoGame);
+
+		//opretter,giver attributter og adder error label
+		lblWrongInput = new JLabel("Input must be an int");
+		lblWrongInput.setHorizontalAlignment(SwingConstants.CENTER);
+		lblWrongInput.setForeground(Color.RED);
+		lblWrongInput.setBounds(157, 252, 267, 28);
+		lblWrongInput.setVisible(false);
+		add(lblWrongInput);
 
 		
 		btnDeleteGame = new JButton("Delete Game");
