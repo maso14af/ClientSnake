@@ -13,6 +13,9 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 /**
+ * This class contains the CreateGameScreen GUI, this class has the setters and getters for all
+ * the textFields and confirm/ error labels used in the CreateGame menu. The logic for the class is in the
+ * controller class in the Logic package.
  *extends JPanel
  */
 public class CreateGameScreen extends JPanel
@@ -28,13 +31,16 @@ public class CreateGameScreen extends JPanel
 	private JLabel lblErrorNoName;
 	private JLabel lblGameCreated;
 
+	/**
+	 * Creation of the CreateGame panel
+	 */
 	public CreateGameScreen()
 	{
 		setLayout(null);
 		setBackground(new Color(102, 153, 204));
 		setBounds(100, 100, 529, 475);
 
-		//opretter og giver attributter og adder Create Game label
+		//Creating CreateGame label and adding attributes
 		lblCreateGame = new JLabel("Create Game");
 		lblCreateGame.setForeground(Color.WHITE);
 		lblCreateGame.setHorizontalAlignment(SwingConstants.CENTER);
@@ -42,19 +48,19 @@ public class CreateGameScreen extends JPanel
 		lblCreateGame.setBounds(196, 94, 200, 50);
 		add(lblCreateGame);
 
-		//opretter,giver attributter og adder Control label
+		//Creating Controls label and adding attributes
 		lblControls = new JLabel("Enter controls:");
 		lblControls.setForeground(Color.WHITE);
 		lblControls.setBounds(60, 238, 131, 16);
 		add(lblControls);
 
-		//opretter,giver attributter og adder GameName textfield
+		//Creating Game name text field and adding attributes
 		txtGameName = new JTextField();
 		txtGameName.setBounds(196, 192, 200, 28);
 		add(txtGameName);
 		txtGameName.setColumns(10);
 
-		//opretter,giver attributter og adder home knap
+		//Creating Home button and adding attributes
 		btnHome = new JButton();
 		Image imgHome = new ImageIcon(this.getClass().getResource("/res/btnHome.png")).getImage();
 		btnHome.setIcon(new ImageIcon(imgHome));
@@ -62,7 +68,7 @@ public class CreateGameScreen extends JPanel
 		add(btnHome);
 
 
-		//opretter,giver attributter og adder error label
+		//Creating hidden error label and adding attributes
 		lblErrorNoName = new JLabel("Please type a name and controls");
 		lblErrorNoName.setHorizontalAlignment(SwingConstants.CENTER);
 		lblErrorNoName.setForeground(Color.RED);
@@ -70,7 +76,7 @@ public class CreateGameScreen extends JPanel
 		lblErrorNoName.setVisible(false);
 		add(lblErrorNoName);
 
-		//opretter,giver attributter og adder error label
+		//Creating hidden game created label and adding attributes
 		lblGameCreated = new JLabel("Game created");
 		lblGameCreated.setHorizontalAlignment(SwingConstants.CENTER);
 		lblGameCreated.setForeground(Color.RED);
@@ -79,13 +85,13 @@ public class CreateGameScreen extends JPanel
 		add(lblGameCreated);
 
 
-		//opretter,giver attributter og adder GameName label
+		//Creating game name label and adding attributes
 		lblGameName = new JLabel("Game name:");
 		lblGameName.setForeground(Color.WHITE);
 		lblGameName.setBounds(60, 198, 118, 16);
 		add(lblGameName);
 
-		//opretter,giver attributter og adder txtControls textfield
+		//Creating controls text field and adding attributes
 		txtControls = new JTextField();
 		txtControls.setColumns(10);
 		txtControls.setBounds(196, 230, 200, 28);
@@ -95,20 +101,36 @@ public class CreateGameScreen extends JPanel
 		btnCreateGame.setBounds(196, 265, 200, 29);
 		add(btnCreateGame);
 
-	}//metode slut
+	}//End of method
 
+	/**
+	 * Getter for lblGameCreated
+	 * @return lblGameCreated
+	 */
 	public JLabel getLblGameCreated() {
 		return lblGameCreated;
 	}
 
+	/**
+	 * Getter for lblErrorNoName
+	 * @return lblErrorNoName
+	 */
 	public JLabel getLblErrorNoName() {
 		return lblErrorNoName;
 	}
 
+	/**
+	 * getter for btnHome
+	 * @return btnHome;
+	 */
 	public JButton getBtnHome() {
 		return btnHome;
 	}
 
+	/**
+	 * Getter for btnCreateGame
+	 * @return btnCreateGame
+	 */
 	public JButton getBtnCreateGame() {
 		return btnCreateGame;
 	}
@@ -133,7 +155,7 @@ public class CreateGameScreen extends JPanel
 
 
 	/**
-	 * opretter actionlisternes for dette panel
+	 * Creates actionListeners for this panel
 	 * @param l
 	 */
 	public void addActionListener(ActionListener l)
@@ -141,5 +163,5 @@ public class CreateGameScreen extends JPanel
 		btnHome.addActionListener(l);
 		btnCreateGame.addActionListener(l);
 
-	}//metode slut
-}//klasse slut
+	}//End of method
+}//End of class CreateGameScreen
