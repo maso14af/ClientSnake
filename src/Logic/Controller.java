@@ -152,6 +152,9 @@ public class Controller
             if (e.getSource() == screen.getCreateGameScreen().getBtnHome())
             {
                 screen.show(Screen.MENUSCREEN);
+                //Resetter tekst felter
+                screen.getCreateGameScreen().getTxtGameName().setText("");
+                screen.getCreateGameScreen().getTxtControls().setText("");
 
             }//if slut
 
@@ -244,6 +247,9 @@ public class Controller
             if (e.getSource() == screen.getDeleteGameScreen().getBtnHome())
             {
                 screen.show(Screen.MENUSCREEN);
+                screen.getDeleteGameScreen().getLblWrongInput().setVisible(false);
+                screen.getDeleteGameScreen().getLblErrorNoGame().setVisible(false);
+                screen.getDeleteGameScreen().getTxtGameName().setText("");
             }//if slut
             //Hvis brugeren trykker på delete Game
             try
@@ -259,12 +265,15 @@ public class Controller
                 else
 
                     System.out.print("Game was not deleted, try again");
+                    screen.getDeleteGameScreen().getLblWrongInput().setVisible(false);
+                    screen.getDeleteGameScreen().getLblErrorNoGame().setVisible(true);
 
             }
             } catch (Exception e1)
             {
                 System.out.print("To delete a game type the ID with int");
                 screen.getDeleteGameScreen().getLblWrongInput().setVisible(true);
+                screen.getDeleteGameScreen().getLblErrorNoGame().setVisible(false);
             }
 
         }//actionPerformed slut
