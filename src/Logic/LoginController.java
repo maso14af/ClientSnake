@@ -2,8 +2,11 @@ package Logic;
 
 
 import GUI.Screen;
+import SDK.Game;
 import SDK.Logic;
 import SDK.User;
+import SDK.Gamer;
+
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -13,10 +16,9 @@ import java.awt.event.ActionListener;
 
 public class LoginController
 {
-    public Screen screen;
-    public Logic logic;
-    public User currentUser;
-
+    private Screen screen;
+    private Logic logic;
+    private User currentUser;
 
 
     /**
@@ -46,12 +48,12 @@ public class LoginController
         screen.show(Screen.LOGINSCREEN);
 
 
+
     }
 
 
     private class LoginActionListener implements ActionListener
     {
-        SDK.Logic logic = new SDK.Logic();
         @Override
         public void actionPerformed(ActionEvent e)
         {
@@ -68,13 +70,15 @@ public class LoginController
 
                 if(response == 200)
                 {
-                    for(User user : logic.getUsers())
+                    for (User user : logic.getUsers())
                     {
-                        if(user.getUsername().equals(screen.getLoginScreen().getTxtUser()))
+                        if (user.getUsername().equals(screen.getLoginScreen().getTxtUser().getText()))
                         {
                             currentUser = user;
+                            System.out.print(currentUser.getId());
                         }
                     }
+
                     screen.show(screen.MENUSCREEN);
                 }
                 else
@@ -99,6 +103,7 @@ public class LoginController
             if (e.getSource() == screen.getMenuScreen().getBtnCreateGame())
             {
                 screen.show(Screen.CREATEGAMESCREEN);
+                System.out.print(currentUser.getId());
             }//if slut
             //Hvis brugeren trykker på delete game
             if (e.getSource() == screen.getMenuScreen().getBtnDeleteGame())
@@ -144,11 +149,26 @@ public class LoginController
 
             if (e.getSource() == screen.getCreateGameScreen().getBtnCreateGame()){
 
-                String gamename = screen.getCreateGameScreen().getTxtGameName().getText();
+
+                String gameName = screen.getCreateGameScreen().getTxtGameName().getText();
                 String moves = screen.getCreateGameScreen().getTxtControls().getText();
 
+                Gamer host = new Gamer();
+                host.setId(currentUser.getId());
+                host.setControls(moves);
 
+                Game game = new Game();
+                game.setName(gameName);
+                game.setHost(host);
+                game.setMapSize(20);
 
+                int response = logic.createGame(game);
+
+                if (response == 201)
+                {
+                    System.out.print("Game has been created");
+                }
+                else System.out.print("Game was not created");
 
                 /*if(logic.createGame(gamename, moves)){
 

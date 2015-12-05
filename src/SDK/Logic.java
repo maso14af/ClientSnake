@@ -24,18 +24,11 @@ public class Logic {
         return json;
     }
 
-    public ArrayList<User> getUsers(){
-
-        ServerConnection serverConnection = new ServerConnection();
-
-        String json = serverConnection.get("users/");
-
-        //Henter users ned i en arrayList
-        ArrayList<User> users = new Gson().fromJson(json, new TypeToken<ArrayList<User>>(){}.getType());
-
+    public ArrayList<User> getUsers() {
+        String jsonData = serverConnection.get("users/");
+        ArrayList<User> users = new Gson().fromJson(jsonData, new TypeToken<ArrayList<User>>() {
+        }.getType());
         return users;
-
-
     }
 
     public int createGame(Game game)
