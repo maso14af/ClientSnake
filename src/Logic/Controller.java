@@ -227,7 +227,9 @@ public class Controller
                 logic.startGame(game);
                     System.out.println("Game has been joined and started");
                 }
-                else System.out.println("Game was not joined");
+                else
+                    screen.getJoinGameScreen().getLblErrorNoGame().setVisible(true);
+                    System.out.println("Game was not joined");
             }
         }//actionPerformed slut
     }//inner class slut
@@ -251,7 +253,10 @@ public class Controller
                 {
                     System.out.print("Game was deleted");
                 }
-                else System.out.print("Game was not deleted, try again");
+                else
+
+                    System.out.print("Game was not deleted, try again");
+
             }
 
         }//actionPerformed slut
