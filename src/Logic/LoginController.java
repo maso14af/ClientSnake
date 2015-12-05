@@ -75,7 +75,6 @@ public class LoginController
                         if (user.getUsername().equals(screen.getLoginScreen().getTxtUser().getText()))
                         {
                             currentUser = user;
-                            System.out.print(currentUser.getId());
                         }
                     }
 

@@ -37,6 +37,18 @@ public class Logic {
         return json;
     }
 
+    public int joinGame (Game game)
+    {
+        int json = serverConnection.put(new Gson().toJson(game), "games/join/");
+        return json;
+    }
+
+    public int startGame (Game game)
+    {
+        int json = serverConnection.put(new Gson().toJson(game), "games/start/");
+        return json;
+    }
+
     /*public boolean createGame(String name, String moves){
 
         ServerConnection serverConnection = new ServerConnection();

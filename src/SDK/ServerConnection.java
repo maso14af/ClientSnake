@@ -64,4 +64,24 @@ public class ServerConnection {
 
         return responser;
     }
+
+    public int put(String json, String path){
+
+        Client client = Client.create();
+
+        WebResource webResource = client.resource(getHostAddress() + ":" + getPort() + "/api/" + path);
+        ClientResponse response = webResource.type("application/json").put(ClientResponse.class, json);
+
+        //if (response.getStatus() != 200 && response.getStatus() != 201) {
+        //    throw new RuntimeException("Failed : HTTP error code : "
+        //            + response.getStatus());
+        //}
+
+        String output = response.getEntity(String.class);
+        System.out.println(output);
+
+        int responser = response.getStatus();
+
+        return responser;
+    }
 }
