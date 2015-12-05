@@ -7,12 +7,19 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
+
+/**
+ * Panel for MenuScreen
+ *extends JPanel
+ */
 /**
  *extends JPanel
  */
-public class MenuScreen extends JPanel 
+
+//Start of class
+public class MenuScreen extends JPanel
 {
-	//Instantierer variabler
+	//Initialising of variables used in this class.
 	private JLabel lblMenu;
 	private JButton btnCreateGame;
 	private JButton btnHighScore;
@@ -22,6 +29,45 @@ public class MenuScreen extends JPanel
 
 
 
+
+	/**
+	 * Create the panel.
+	 */
+	public MenuScreen()
+	{
+		setLayout(null);
+		setBackground(new Color(102, 153, 204));
+
+		//opretter,giver attributter og adder deposit label
+		lblMenu = new JLabel("Menu");
+		lblMenu.setForeground(Color.WHITE);
+		lblMenu.setHorizontalAlignment(SwingConstants.CENTER);
+		lblMenu.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
+		setBounds(100, 100, 529, 475);
+		add(lblMenu);
+
+		//opretter,giver attributter og adder knap
+		btnCreateGame = new JButton("Create Game");
+		btnCreateGame.setBounds(210, 103, 117, 29);
+		add(btnCreateGame);
+
+		btnHighScore = new JButton("High Score");
+		btnHighScore.setBounds(210, 185, 117, 29);
+		add(btnHighScore);
+
+		btnDeleteGame = new JButton("Delete game");
+		btnDeleteGame.setBounds(210, 226, 117, 29);
+		add(btnDeleteGame);
+
+		btnLogout = new JButton("Log out");
+		btnLogout.setBounds(210, 267, 117, 29);
+		add(btnLogout);
+
+		btnJoinGame = new JButton("Join Game");
+		btnJoinGame.setBounds(210, 144, 117, 29);
+		add(btnJoinGame);
+
+	}//metode slut
 
 	public JButton getBtnCreateGame() {
 		return btnCreateGame;
@@ -42,59 +88,17 @@ public class MenuScreen extends JPanel
 	}
 
 	/**
-	 * Create the panel.
-	 */
-	public MenuScreen() 
-	{
-		setLayout(null);
-		setBackground(new Color(102, 153, 204));
-
-		//opretter,giver attributter og adder deposit label
-		lblMenu = new JLabel("Menu");
-		lblMenu.setForeground(Color.WHITE);
-		lblMenu.setHorizontalAlignment(SwingConstants.CENTER);
-		lblMenu.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
-		setBounds(100, 100, 529, 475);
-		add(lblMenu);
-
-		//opretter,giver attributter og adder knap 
-		btnCreateGame = new JButton("Create Game");
-		btnCreateGame.setBounds(210, 103, 117, 29);
-		add(btnCreateGame);
-		
-		btnHighScore = new JButton("High Score");
-		btnHighScore.setBounds(210, 185, 117, 29);
-		add(btnHighScore);
-		
-		btnDeleteGame = new JButton("Delete game");
-		btnDeleteGame.setBounds(210, 226, 117, 29);
-		add(btnDeleteGame);
-		
-		btnLogout = new JButton("Log out");
-		btnLogout.setBounds(210, 267, 117, 29);
-		add(btnLogout);
-		
-		btnJoinGame = new JButton("Join Game");
-		btnJoinGame.setBounds(210, 144, 117, 29);
-		add(btnJoinGame);
-
-	}//metode slut
-
-
-
-
-	/**
 	 * opretter actionlisternes for dette panel
 	 * @param l
 	 */
-	public void addActionListener(ActionListener l) 
+	public void addActionListener(ActionListener l)
 	{
 		btnCreateGame.addActionListener(l);
 		btnDeleteGame.addActionListener(l);
 		btnHighScore.addActionListener(l);
 		btnJoinGame.addActionListener(l);
 		btnLogout.addActionListener(l);
-	
-		
+
+
 	}//metode slut
 }//klasse slut

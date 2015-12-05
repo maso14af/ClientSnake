@@ -15,9 +15,9 @@ import javax.swing.SwingConstants;
 /**
  *extends JPanel
  */
-public class CreateGameScreen extends JPanel 
+public class CreateGameScreen extends JPanel
 {
-	//Instanisierer variabler
+	//Initializing of local variables
 	private JLabel lblCreateGame;
 	private JLabel lblControls;
 	private JTextField txtGameName;
@@ -27,22 +27,6 @@ public class CreateGameScreen extends JPanel
 	private JButton btnCreateGame;
 	private JLabel lblErrorNoName;
 	private JLabel lblGameCreated;
-
-	public JLabel getLblGameCreated() {
-		return lblGameCreated;
-	}
-
-	public JLabel getLblErrorNoName() {
-		return lblErrorNoName;
-	}
-
-	public JButton getBtnHome() {
-		return btnHome;
-	}
-
-	public JButton getBtnCreateGame() {
-		return btnCreateGame;
-	}
 
 	public CreateGameScreen()
 	{
@@ -106,19 +90,34 @@ public class CreateGameScreen extends JPanel
 		txtControls.setColumns(10);
 		txtControls.setBounds(196, 230, 200, 28);
 		add(txtControls);
-		
+
 		btnCreateGame = new JButton("Create Game");
 		btnCreateGame.setBounds(196, 265, 200, 29);
 		add(btnCreateGame);
 
 	}//metode slut
-	
-	
+
+	public JLabel getLblGameCreated() {
+		return lblGameCreated;
+	}
+
+	public JLabel getLblErrorNoName() {
+		return lblErrorNoName;
+	}
+
+	public JButton getBtnHome() {
+		return btnHome;
+	}
+
+	public JButton getBtnCreateGame() {
+		return btnCreateGame;
+	}
+
 	/**
 	 * Getter for txtControls
 	 * @return txtControls
 	 */
-	public JTextField getTxtControls() 
+	public JTextField getTxtControls()
 	{
 		return txtControls;
 	}//metode slut
@@ -137,7 +136,7 @@ public class CreateGameScreen extends JPanel
 	 * opretter actionlisternes for dette panel
 	 * @param l
 	 */
-	public void addActionListener(ActionListener l) 
+	public void addActionListener(ActionListener l)
 	{
 		btnHome.addActionListener(l);
 		btnCreateGame.addActionListener(l);

@@ -57,6 +57,13 @@ public class Controller
 
     }
 
+    public void showHighScores()
+    {
+        ArrayList<Score> highScores = logic.getHighScores();
+        HighScoreTableModel highScoreTableModel = new HighScoreTableModel(highScores);
+        screen.getHighScoreScreen().getTable().setModel(highScoreTableModel);
+
+    }
 
     private class LoginActionListener implements ActionListener
     {
@@ -207,7 +214,6 @@ public class Controller
 
         }//actionPerformed slut
     }//inner class slut
-
 
     private class JoinGameActionListener implements ActionListener
     {
@@ -380,13 +386,6 @@ public class Controller
 
             return null;
         }
-    }
-    public void showHighScores()
-    {
-        ArrayList<Score> highScores = logic.getHighScores();
-        HighScoreTableModel highScoreTableModel = new HighScoreTableModel(highScores);
-        screen.getHighScoreScreen().getTable().setModel(highScoreTableModel);
-
     }
 
 
