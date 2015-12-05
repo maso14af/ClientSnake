@@ -50,7 +50,6 @@ public class DeleteGameScreen extends JPanel
 		//opretter,giver attributter og adder game name textfield
 		txtGameName = new JTextField();
 		txtGameName.setBounds(196, 192, 200, 28);
-		txtGameName.setEditable(false);
 		add(txtGameName);
 		txtGameName.setColumns(10);
 
