@@ -61,7 +61,7 @@ public class DeleteGameScreen extends JPanel
 		add(btnHome);
 
 		//opretter,giver attributter og adder GameName label
-		lblGameName = new JLabel("Game name:");
+		lblGameName = new JLabel("Game ID:");
 		lblGameName.setForeground(Color.WHITE);
 		lblGameName.setBounds(60, 198, 118, 16);
 		add(lblGameName);
