@@ -13,7 +13,6 @@ import java.awt.event.ActionListener;
 public class LoginController
 {
     public GUI.Screen screen;
-    public MenuScreenController msc;
     public Logic logic;
 
 
@@ -24,7 +23,6 @@ public class LoginController
     {
         screen = new Screen();
         logic = new Logic();
-        //msc = new MenuScreenController(screen);
 
 
 

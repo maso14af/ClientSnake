@@ -41,8 +41,6 @@ public class ServerConnection {
         ClientResponse response = webResource.type("application/json").get(ClientResponse.class);
 
         String message = response.getEntity(String.class);
-        System.out.println(message);
-
 
         return message;
     }

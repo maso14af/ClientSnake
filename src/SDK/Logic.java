@@ -26,7 +26,7 @@ public class Logic {
 
         serverConnection.post(json, "login/");
 
-        System.out.printf(json);
+        //System.out.printf(json);
 
         if(serverConnection.post(json, "login/")==200){
 
@@ -52,7 +52,7 @@ public class Logic {
 
         String json = serverConnection.get("users/");
 
-        //henyer users ned i en arrayList
+        //henter users ned i en arrayList
         ArrayList<User> users = new Gson().fromJson(json, new TypeToken<ArrayList<User>>(){}.getType());
 
         return users;
