@@ -1,22 +1,14 @@
 package GUI;
 
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.Image;
+import java.awt.*;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.SwingConstants;
-import javax.swing.JButton;
-import javax.swing.ImageIcon;
-import javax.swing.JTable;
+import javax.swing.*;
 
 /**
  * @author Martin Lusty Sørensen
- *Panel for view balance
  *extends JPanel
  */
 public class HighScoreScreen extends JPanel 
@@ -25,6 +17,10 @@ public class HighScoreScreen extends JPanel
 	private JLabel lblHighScore;
 	private JButton btnHome;
 	private JTable table;
+	private JScrollPane scrollPane;
+
+
+
 
 	/**
 	 * Create the panel.
@@ -51,14 +47,22 @@ public class HighScoreScreen extends JPanel
 		add(btnHome);
 		
 		table = new JTable();
-		table.setBounds(57, 72, 359, 184);
-		add(table);
+		scrollPane = new JScrollPane(table);
+		scrollPane.setBounds(57, 72, 359, 184);
+		add(scrollPane);
+		//add(table);
+
 	}//metode slut	
 
 
-	
 
+	public JTable getTable() {
+		return table;
+	}
 
+	public JScrollPane getScrollPane() {
+		return scrollPane;
+	}
 
 	
 	/**

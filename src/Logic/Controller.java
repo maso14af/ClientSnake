@@ -6,6 +6,9 @@ import SDK.Game;
 import SDK.Logic;
 import SDK.User;
 import SDK.Gamer;
+import SDK.Score;
+import javax.swing.table.AbstractTableModel;
+import java.util.ArrayList;
 
 
 import java.awt.event.ActionEvent;
@@ -116,7 +119,10 @@ public class Controller
             if (e.getSource() == screen.getMenuScreen().getBtnHighScore())
             {
               screen.show(Screen.HIGHSCORESCREEN);
+                showHighScores();
             }//if slut
+
+
             //Hvis brugeren trykker på Join Game .
             if (e.getSource() == screen.getMenuScreen().getBtnJoinGame())
             {
@@ -264,6 +270,64 @@ public class Controller
 
         }//actionPerformed slut
     }//inner class slut
+
+    public class HighScoreTableModel extends AbstractTableModel
+    {
+        private static final long serialVersionUID = 1L;
+
+        private ArrayList<Score> highScores;
+        private String[] columns = {"Username", "Score"};
+        private int numberOfRows;
+
+        public HighScoreTableModel(ArrayList<Score> highScores)
+        {
+            this.highScores = highScores;
+            fireTableStructureChanged();
+        }
+
+        @Override
+        public int getColumnCount() {
+            return columns.length;
+        }
+
+        @Override
+        public Class<?> getColumnClass(int columnIndex) {
+            return super.getColumnClass(columnIndex);
+        }
+
+        @Override
+        public int getRowCount() {
+            numberOfRows = highScores.size();
+            return numberOfRows;
+        }
+
+        public String getColumnName(int columnIndex) {
+
+            return columns[columnIndex];
+
+        }
+
+        @Override
+        public Object getValueAt(int rowIndex, int columnIndex) {
+            switch (columnIndex) {
+
+                case 0:
+                    return highScores.get(rowIndex).getGame().getWinner().getUsername();
+                case 1:
+                    return highScores.get(rowIndex).getScore();
+            }
+
+            return null;
+        }
+    }
+    public void showHighScores()
+    {
+        ArrayList<Score> highScores = logic.getHighScores();
+        HighScoreTableModel highScoreTableModel = new HighScoreTableModel(highScores);
+        screen.getHighScoreScreen().getTable().setModel(highScoreTableModel);
+
+    }
+
 
 
 }//klasse slut
