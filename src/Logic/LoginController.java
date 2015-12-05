@@ -3,6 +3,7 @@ package Logic;
 
 import GUI.Screen;
 import SDK.Logic;
+import SDK.User;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -12,8 +13,10 @@ import java.awt.event.ActionListener;
 
 public class LoginController
 {
-    public GUI.Screen screen;
+    public Screen screen;
     public Logic logic;
+    public User currentUser;
+
 
 
     /**
@@ -23,10 +26,9 @@ public class LoginController
     {
         screen = new Screen();
         logic = new Logic();
-
-
-
         screen.setVisible(true);
+
+        currentUser = new User();
     }//konstruktør slut
 
     /**
@@ -35,14 +37,12 @@ public class LoginController
     public void run()
     {
 
-        //msc = new MenuScreenController(screen);
 
         // Injection af listeners i panels
         screen.loginScreen.addActionListener(new LoginActionListener());
         screen.getMenuScreen().addActionListener(new MenuScreenActionListener());
         screen.getCreateGameScreen().addActionListener(new CreateGameActionListener());
         // vis startskaerm
-        //msc.run();
         screen.show(Screen.LOGINSCREEN);
 
 
@@ -61,16 +61,24 @@ public class LoginController
                 String username = screen.getLoginScreen().getTxtUser().getText();
                 String password = screen.getLoginScreen().getTxtPassword().getText();
 
-                if(logic.login(username, password)) {
+                currentUser.setUsername(username);
+                currentUser.setPassword(password);
 
+                int response = logic.login(currentUser);
 
+                if(response == 200)
+                {
+                    for(User user : logic.getUsers())
+                    {
+                        if(user.getUsername().equals(screen.getLoginScreen().getTxtUser()))
+                        {
+                            currentUser = user;
+                        }
+                    }
                     screen.show(screen.MENUSCREEN);
-
-                }else {
-                    screen.getLoginScreen().getLblError().setVisible(true);
                 }
-
-
+                else
+                    screen.getLoginScreen().getLblError().setVisible(true);
 
 
             }//if listener slut
@@ -90,7 +98,7 @@ public class LoginController
             //Hvis brugeren trykker på Create Game
             if (e.getSource() == screen.getMenuScreen().getBtnCreateGame())
             {
-            screen.show(Screen.CREATEGAMESCREEN);
+                screen.show(Screen.CREATEGAMESCREEN);
             }//if slut
             //Hvis brugeren trykker på delete game
             if (e.getSource() == screen.getMenuScreen().getBtnDeleteGame())

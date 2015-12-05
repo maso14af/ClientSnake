@@ -11,48 +11,22 @@ import java.util.ArrayList;
 
 public class Logic {
 
-    private User currentUser;
-    private ServerConnection serverConnection;
+    User currentUser = new User();
+    ServerConnection serverConnection = new ServerConnection();
 
-    public Logic()
+
+
+
+    public int login(User user)
     {
-        currentUser = new User();
-        serverConnection = new ServerConnection();
+        int json = serverConnection.post(new Gson().toJson(user), "login/");
+
+        return json;
     }
 
+    public ArrayList<User> getUsers(){
 
-    public boolean login(String username, String password){
-
-        //ServerConnection serverConnection = new ServerConnection();
-
-        currentUser.setUsername(username);
-        currentUser.setPassword(password);
-
-
-        String json = new Gson().toJson(currentUser);
-
-        if(serverConnection.post(json, "login/")==200){
-
-            for (User users : getUser()){
-
-                if (users.getUsername().equals(currentUser.getUsername()))
-                {
-                    currentUser = users;
-                }
-
-            }
-
-            System.out.print(currentUser.getUsername());
-
-            return true;
-        }else {
-            return false;
-        }
-    }
-
-    public ArrayList<User> getUser(){
-
-        //ServerConnection serverConnection = new ServerConnection();
+        ServerConnection serverConnection = new ServerConnection();
 
         String json = serverConnection.get("users/");
 
@@ -66,7 +40,8 @@ public class Logic {
 
     public boolean createGame(String name, String moves){
 
-        //ServerConnection serverConnection = new ServerConnection();
+        ServerConnection serverConnection = new ServerConnection();
+
 
         Gamer host = new Gamer();
         host.setId(currentUser.getId());
@@ -103,7 +78,7 @@ public class Logic {
 
     public ArrayList<Game> openGames()
     {
-        //ServerConnection serverConnection = new ServerConnection();
+        ServerConnection serverConnection = new ServerConnection();
 
         String json = serverConnection.get("games/open/");
 
