@@ -14,6 +14,7 @@ public class LoginController
 {
     public GUI.Screen screen;
     public MenuScreenController msc;
+    public Logic logic;
 
 
     /**
@@ -22,7 +23,7 @@ public class LoginController
     public LoginController()
     {
         screen = new Screen();
-        Logic logic = new Logic();
+        logic = new Logic();
         //msc = new MenuScreenController(screen);
 
 
@@ -135,19 +136,19 @@ public class LoginController
 
             }//if slut
 
-            /*if (e.getSource() == screen.getCreateGameScreen().getBtnCreateGame()){
+            if (e.getSource() == screen.getCreateGameScreen().getBtnCreateGame()){
                 String gamename = screen.getCreateGameScreen().getTxtGameName().getText();
                 String moves = screen.getCreateGameScreen().getTxtControls().getText();
 
 
-                if(SDK.Logic.createGame(gamename,moves)){
+                if(logic.createGame(gamename, moves)){
 
                     System.out.println("Game has been created");
 
                 }
 
 
-            }*/
+            }
 
         }//actionPerformed slut
     }//inner class slut

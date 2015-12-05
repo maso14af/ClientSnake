@@ -15,7 +15,6 @@ public class Main {
     LoginController lg = new LoginController();
     Logic logic = new Logic();
 
-    logic.login("HeinHero","123");
 
 
     lg.run();

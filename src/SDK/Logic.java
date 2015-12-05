@@ -45,12 +45,7 @@ public class Logic {
             return false;
         }
     }
-    public static void createUser(User user){
 
-    }
-    public static void deleteUser(int userId){
-
-    }
     public static ArrayList<User> getUser(){
 
         ServerConnection serverConnection = new ServerConnection();
@@ -64,15 +59,7 @@ public class Logic {
 
 
     }
-    public static void getGame(int gameId){
 
-    }
-    public static void joinGame(int gameId, User opponent, String controls){
-
-    }
-    public static void startGame(int gameId){
-
-    }
     public boolean createGame(String name, String moves){
 
         ServerConnection serverConnection = new ServerConnection();
@@ -85,7 +72,7 @@ public class Logic {
         Game game = new Game();
         game.setName(name);
         game.setHost(host);
-        game.setMapSize(15);
+        game.setMapSize(20);
 
 
         String json = new Gson().toJson(game);
@@ -97,9 +84,6 @@ public class Logic {
         }
 
         return false;
-
-    }
-    public static void deleteGame(int gameId){
 
     }
 }
