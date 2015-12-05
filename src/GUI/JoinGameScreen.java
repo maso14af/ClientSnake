@@ -30,6 +30,14 @@ public class JoinGameScreen extends JPanel
 	private JButton btnJoinGame;
 	private JTextField txtGameName;
 
+	public JButton getBtnJoinGame() {
+		return btnJoinGame;
+	}
+
+	public JButton getBtnHome() {
+		return btnHome;
+	}
+
 	public JoinGameScreen()
 	{
 		setLayout(null);
@@ -57,6 +65,7 @@ public class JoinGameScreen extends JPanel
 		btnHome.setIcon(new ImageIcon(imgHome));
 		btnHome.setBounds(16, 10, 42, 38);
 		add(btnHome);
+
 
 		//opretter,giver attributter og adder GameName label
 		lblControls = new JLabel("Controls:");
