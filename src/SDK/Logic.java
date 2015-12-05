@@ -49,44 +49,6 @@ public class Logic {
         return json;
     }
 
-    /*public boolean createGame(String name, String moves){
-
-        ServerConnection serverConnection = new ServerConnection();
-
-
-        Gamer host = new Gamer();
-        host.setId(currentUser.getId());
-        host.setControls(moves);
-
-
-        Game game = new Game();
-        game.setName(name);
-        game.setHost(host);
-        game.setMapSize(20);
-
-
-        String json = new Gson().toJson(game);
-
-        int response = serverConnection.post(json,"games/");
-
-        for(Game g : openGames())
-        {
-            if(g.getName().equals(name))
-            {
-                game.setGameId(g.getGameId());
-            }
-        }
-
-        if(response==201){
-
-            System.out.print(game.getHost().getUsername());
-            return true;
-        }
-
-        return false;
-
-    }*/
-
     public ArrayList<Game> openGames()
     {
         ServerConnection serverConnection = new ServerConnection();
@@ -97,5 +59,11 @@ public class Logic {
         }.getType());
 
         return openGames;
+    }
+
+    public int deleteGame (int gameId)
+    {
+        int json = serverConnection.delete("/games/"+gameId+"/");
+        return json;
     }
 }

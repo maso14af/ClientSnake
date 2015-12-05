@@ -237,6 +237,11 @@ public class Controller
                 screen.show(Screen.MENUSCREEN);
             }//if slut
 
+            if (e.getSource() == screen.getDeleteGameScreen().getBtnDeleteGame())
+            {
+
+            }
+
         }//actionPerformed slut
     }//inner class slut
 

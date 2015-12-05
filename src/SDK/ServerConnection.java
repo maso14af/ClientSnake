@@ -73,12 +73,12 @@ public class ServerConnection {
         return responser;
     }
 
-    public int delete(String json, String path){
+    public int delete(String path){
 
         Client client = Client.create();
 
         WebResource webResource = client.resource(getHostAddress() + ":" + getPort() + "/api/" + path);
-        ClientResponse response = webResource.type("application/json").delete(ClientResponse.class, json);
+        ClientResponse response = webResource.type("application/json").delete(ClientResponse.class);
         String output = response.getEntity(String.class);
         System.out.println(output);
 

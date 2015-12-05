@@ -104,9 +104,9 @@ public class DeleteGameScreen extends JPanel
 		return lblErrorNoGame;
 	}//metode slut
 
-
-
-
+	public JButton getBtnDeleteGame() {
+		return btnDeleteGame;
+	}
 
 	/**
 	 * opretter actionlisternes for dette panel
