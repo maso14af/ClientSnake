@@ -50,7 +50,6 @@ public class JoinGameScreen extends JPanel
 		//opretter,giver attributter og adder game name textfield
 		txtGameName = new JTextField();
 		txtGameName.setBounds(196, 192, 200, 28);
-		txtGameName.setEditable(false);
 		add(txtGameName);
 		txtGameName.setColumns(10);
 
@@ -106,8 +105,9 @@ public class JoinGameScreen extends JPanel
 	}//metode slut
 
 
-
-
+	public JButton getBtnJoinGame() {
+		return btnJoinGame;
+	}
 
 	/**
 	 * opretter actionlisternes for dette panel
@@ -117,5 +117,6 @@ public class JoinGameScreen extends JPanel
 	{
 		btnHome.addActionListener(l);
 		btnJoinGame.addActionListener(l);
+
 	}//metode slut
 }//klasse slut

@@ -44,6 +44,7 @@ public class Controller
         screen.loginScreen.addActionListener(new LoginActionListener());
         screen.getMenuScreen().addActionListener(new MenuScreenActionListener());
         screen.getCreateGameScreen().addActionListener(new CreateGameActionListener());
+        screen.getJoinGameScreen().addActionListener(new JoinGameActionListener());
         // vis startskaerm
         screen.show(Screen.LOGINSCREEN);
 
@@ -181,6 +182,31 @@ public class Controller
         }//actionPerformed slut
     }//inner class slut
 
+
+    private class JoinGameActionListener implements ActionListener
+    {
+        @Override
+        public void actionPerformed(ActionEvent e)
+        {
+            //Hvis brugeren trykker på Home knap
+            if (e.getSource() == screen.getJoinGameScreen().getBtnHome())
+            {
+                screen.show(Screen.MENUSCREEN);
+
+            }//if slut
+
+
+                /*if(logic.createGame(gamename, moves)){
+
+                    System.out.println("Game has been created");
+
+                }*/
+
+
+
+
+        }//actionPerformed slut
+    }//inner class slut
 
 
 }//klasse slut
