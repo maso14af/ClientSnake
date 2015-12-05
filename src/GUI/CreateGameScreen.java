@@ -60,7 +60,7 @@ public class CreateGameScreen extends JPanel
 		add(txtGameName);
 		txtGameName.setColumns(10);
 
-		//Creating Home button and adding attributes
+		//Creating Home button and adding attributes aswell as image
 		btnHome = new JButton();
 		Image imgHome = new ImageIcon(this.getClass().getResource("/res/btnHome.png")).getImage();
 		btnHome.setIcon(new ImageIcon(imgHome));
@@ -97,6 +97,7 @@ public class CreateGameScreen extends JPanel
 		txtControls.setBounds(196, 230, 200, 28);
 		add(txtControls);
 
+		//Creating create game button and adding attributes
 		btnCreateGame = new JButton("Create Game");
 		btnCreateGame.setBounds(196, 265, 200, 29);
 		add(btnCreateGame);

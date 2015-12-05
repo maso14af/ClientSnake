@@ -21,7 +21,7 @@ import java.awt.event.ActionEvent;
  */
 public class DeleteGameScreen extends JPanel 
 {
-	//Instantierer variabler
+	//Initializing of variables used in this class
 	private JLabel lblDeleteGame;
 	private JTextField txtGameName;
 	private JButton btnHome;
@@ -31,25 +31,13 @@ public class DeleteGameScreen extends JPanel
 	private JLabel lblWrongInput;
     private JLabel lblGameDeleted;
 
-    public JLabel getLblGameDeleted() {
-        return lblGameDeleted;
-    }
-
-    public JButton getBtnHome() {
-		return btnHome;
-	}
-
-	public JLabel getLblWrongInput() {
-		return lblWrongInput;
-	}
-
 	public DeleteGameScreen()
 	{
 		setLayout(null);
 		setBackground(new Color(102, 153, 204));
 		setBounds(100, 100, 529, 475);
 
-		//opretter,giver attributter og adder delete game label
+		//Creating delete game label and adding attributes
 		lblDeleteGame = new JLabel("Delete Game");
 		lblDeleteGame.setForeground(Color.WHITE);
 		lblDeleteGame.setHorizontalAlignment(SwingConstants.CENTER);
@@ -57,26 +45,26 @@ public class DeleteGameScreen extends JPanel
 		lblDeleteGame.setBounds(196, 47, 200, 50);
 		add(lblDeleteGame);
 
-		//opretter,giver attributter og adder game name textfield
+		//Creating game name text field and adding attributes
 		txtGameName = new JTextField();
 		txtGameName.setBounds(196, 192, 200, 28);
 		add(txtGameName);
 		txtGameName.setColumns(10);
 
-		//opretter,giver attributter og adder home knap
+		//Creating home button and adding attributes as well as image
 		btnHome = new JButton();
 		Image imgHome = new ImageIcon(this.getClass().getResource("/res/btnHome.png")).getImage();
 		btnHome.setIcon(new ImageIcon(imgHome));
 		btnHome.setBounds(16, 10, 42, 38);
 		add(btnHome);
 
-		//opretter,giver attributter og adder GameName label
+		//Creating game name label and adding attributes
 		lblGameName = new JLabel("Game ID:");
 		lblGameName.setForeground(Color.WHITE);
 		lblGameName.setBounds(60, 198, 118, 16);
 		add(lblGameName);
 
-		//opretter,giver attributter og adder error label
+		//Creating hidden no game error label and adding attributes
 		lblErrorNoGame = new JLabel("No game by that name");
 		lblErrorNoGame.setHorizontalAlignment(SwingConstants.CENTER);
 		lblErrorNoGame.setForeground(Color.RED);
@@ -84,7 +72,7 @@ public class DeleteGameScreen extends JPanel
 		lblErrorNoGame.setVisible(false);
 		add(lblErrorNoGame);
 
-        //opretter,giver attributter og adder error label
+        //Creating hidden wrong input label and adding attributes
         lblWrongInput = new JLabel("Input must be an int");
         lblWrongInput.setHorizontalAlignment(SwingConstants.CENTER);
         lblWrongInput.setForeground(Color.RED);
@@ -92,7 +80,7 @@ public class DeleteGameScreen extends JPanel
         lblWrongInput.setVisible(false);
         add(lblWrongInput);
 
-        //opretter,giver attributter og adder error label
+        //Creating game deleted confirm label and adding attributes
         lblGameDeleted = new JLabel("Game deleted");
         lblGameDeleted.setHorizontalAlignment(SwingConstants.CENTER);
         lblGameDeleted.setForeground(Color.RED);
@@ -100,21 +88,41 @@ public class DeleteGameScreen extends JPanel
         lblGameDeleted.setVisible(false);
         add(lblGameDeleted);
 
-		
+		//Creating delete game button and adding attributes
 		btnDeleteGame = new JButton("Delete Game");
-		btnDeleteGame.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
 		btnDeleteGame.setBounds(241, 224, 117, 29);
 		add(btnDeleteGame);
 
-	}//metode slut
+	}//End of method
 
-	
+
+    /**
+     * Getter for lblGameDeleted
+     * @return lblGameDeleted
+     */
+    public JLabel getLblGameDeleted() {
+        return lblGameDeleted;
+    }
+
+    /**
+     * Getter for btnHome
+     * @return btnHome
+     */
+    public JButton getBtnHome() {
+		return btnHome;
+	}
+
+    /**
+     * Getter for lblWrongInput
+     * @return lblWrongInput
+     */
+	public JLabel getLblWrongInput() {
+		return lblWrongInput;
+	}
+
 	/**
-	 * Getter for txtBalance
-	 * @return txtBalance
+	 * Getter for txtGameName
+	 * @return txtGameName
 	 */
 	public JTextField getTxtGameName() 
 	{
@@ -122,7 +130,7 @@ public class DeleteGameScreen extends JPanel
 	}//metode slut
 	
 	/**
-	 * Getter forlblErrorNoGame 
+	 * Getter for lblErrorNoGame
 	 * @return lblErrorNoGame
 	 */
 	public JLabel getLblErrorNoGame() 
@@ -130,17 +138,21 @@ public class DeleteGameScreen extends JPanel
 		return lblErrorNoGame;
 	}//metode slut
 
+    /**
+     * Getter for btnDeleteGame
+     * @return btnDeleteGame
+     */
 	public JButton getBtnDeleteGame() {
 		return btnDeleteGame;
 	}
 
 	/**
-	 * opretter actionlisternes for dette panel
+	 * Creating action listeners for this panel
 	 * @param l
 	 */
 	public void addActionListener(ActionListener l) 
 	{
 		btnHome.addActionListener(l);
 		btnDeleteGame.addActionListener(l);
-	}//metode slut
-}//klasse slut
+	}//End of method
+}//End of class DeleteGameScreen
