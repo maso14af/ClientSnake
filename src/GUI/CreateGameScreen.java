@@ -4,9 +4,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionListener;
-import java.io.IOException;
 
-import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -27,10 +25,15 @@ public class CreateGameScreen extends JPanel
 	private JLabel lblGameName;
 	private JTextField txtControls;
 	private JButton btnCreateGame;
-	private JLabel lblErrorNoGame;
+	private JLabel lblErrorNoName;
+	private JLabel lblGameCreated;
 
-	public JLabel getLblErrorNoGame() {
-		return lblErrorNoGame;
+	public JLabel getLblGameCreated() {
+		return lblGameCreated;
+	}
+
+	public JLabel getLblErrorNoName() {
+		return lblErrorNoName;
 	}
 
 	public JButton getBtnHome() {
@@ -76,12 +79,20 @@ public class CreateGameScreen extends JPanel
 
 
 		//opretter,giver attributter og adder error label
-		lblErrorNoGame = new JLabel("No game by that name");
-		lblErrorNoGame.setHorizontalAlignment(SwingConstants.CENTER);
-		lblErrorNoGame.setForeground(Color.RED);
-		lblErrorNoGame.setBounds(157, 252, 267, 28);
-		lblErrorNoGame.setVisible(false);
-		add(lblErrorNoGame);
+		lblErrorNoName = new JLabel("Please type a name");
+		lblErrorNoName.setHorizontalAlignment(SwingConstants.CENTER);
+		lblErrorNoName.setForeground(Color.RED);
+		lblErrorNoName.setBounds(157, 290, 267, 28);
+		lblErrorNoName.setVisible(false);
+		add(lblErrorNoName);
+
+		//opretter,giver attributter og adder error label
+		lblGameCreated = new JLabel("Game created");
+		lblGameCreated.setHorizontalAlignment(SwingConstants.CENTER);
+		lblGameCreated.setForeground(Color.RED);
+		lblGameCreated.setBounds(157, 290, 267, 28);
+		lblGameCreated.setVisible(false);
+		add(lblGameCreated);
 
 
 		//opretter,giver attributter og adder GameName label

@@ -4,9 +4,6 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionListener;
-import java.io.IOException;
-
-import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -29,6 +26,7 @@ public class JoinGameScreen extends JPanel
 	private JLabel lblErrorNoGame;
 	private JButton btnJoinGame;
 	private JTextField txtGameName;
+	private JLabel lblGameJoined;
 
 	public JButton getBtnJoinGame() {
 		return btnJoinGame;
@@ -79,6 +77,14 @@ public class JoinGameScreen extends JPanel
 		lblErrorNoGame.setBounds(157, 252, 267, 28);
 		lblErrorNoGame.setVisible(false);
 		add(lblErrorNoGame);
+
+		//opretter,giver attributter og adder error label
+		lblGameJoined = new JLabel("Game joined");
+		lblGameJoined.setHorizontalAlignment(SwingConstants.CENTER);
+		lblGameJoined.setForeground(Color.RED);
+		lblGameJoined.setBounds(157, 252, 267, 28);
+		lblGameJoined.setVisible(false);
+		add(lblGameJoined);
 
 		btnJoinGame = new JButton("Join Game");
 		btnJoinGame.addActionListener(new ActionListener() {

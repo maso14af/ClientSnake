@@ -158,7 +158,17 @@ public class Controller
 
             }//if slut
 
+
+
+
             if (e.getSource() == screen.getCreateGameScreen().getBtnCreateGame()){
+                if(screen.getCreateGameScreen().getTxtGameName().getText().equals(""))
+                {
+                    System.out.print("Can't be empty name");
+                    screen.getCreateGameScreen().getLblErrorNoName().setVisible(true);
+                }
+                else
+                {
 
 
                 String gameName = screen.getCreateGameScreen().getTxtGameName().getText();
@@ -178,10 +188,11 @@ public class Controller
                 if (response == 201)
                 {
                     System.out.print("Game has been created");
+                    screen.getCreateGameScreen().getLblGameCreated().setVisible(true);
                 }
                 else
                     System.out.print("Game was not created");
-                    screen.getCreateGameScreen().getLblErrorNoGame().setVisible(true);
+                    screen.getCreateGameScreen().getLblErrorNoName().setVisible(true);
 
                 /*if(logic.createGame(gamename, moves)){
 
@@ -190,7 +201,7 @@ public class Controller
                 }*/
 
 
-            }
+            }}
 
         }//actionPerformed slut
     }//inner class slut

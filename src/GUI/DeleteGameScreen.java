@@ -29,6 +29,7 @@ public class DeleteGameScreen extends JPanel
 	private JLabel lblErrorNoGame;
 	private JButton btnDeleteGame;
 	private JLabel lblWrongInput;
+    private JLabel lblGameDeleted;
 
 	public JButton getBtnHome() {
 		return btnHome;
@@ -79,13 +80,21 @@ public class DeleteGameScreen extends JPanel
 		lblErrorNoGame.setVisible(false);
 		add(lblErrorNoGame);
 
-		//opretter,giver attributter og adder error label
-		lblWrongInput = new JLabel("Input must be an int");
-		lblWrongInput.setHorizontalAlignment(SwingConstants.CENTER);
-		lblWrongInput.setForeground(Color.RED);
-		lblWrongInput.setBounds(157, 252, 267, 28);
-		lblWrongInput.setVisible(false);
-		add(lblWrongInput);
+        //opretter,giver attributter og adder error label
+        lblWrongInput = new JLabel("Input must be an int");
+        lblWrongInput.setHorizontalAlignment(SwingConstants.CENTER);
+        lblWrongInput.setForeground(Color.RED);
+        lblWrongInput.setBounds(157, 252, 267, 28);
+        lblWrongInput.setVisible(false);
+        add(lblWrongInput);
+
+        //opretter,giver attributter og adder error label
+        lblGameDeleted = new JLabel("Game deleted");
+        lblGameDeleted.setHorizontalAlignment(SwingConstants.CENTER);
+        lblGameDeleted.setForeground(Color.RED);
+        lblGameDeleted.setBounds(157, 252, 267, 28);
+        lblGameDeleted.setVisible(false);
+        add(lblGameDeleted);
 
 		
 		btnDeleteGame = new JButton("Delete Game");
