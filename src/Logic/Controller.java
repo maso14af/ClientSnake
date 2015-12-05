@@ -151,10 +151,12 @@ public class Controller
             //Hvis brugeren trykker på Home knap
             if (e.getSource() == screen.getCreateGameScreen().getBtnHome())
             {
-                screen.show(Screen.MENUSCREEN);
-                //Resetter tekst felter
                 screen.getCreateGameScreen().getTxtGameName().setText("");
                 screen.getCreateGameScreen().getTxtControls().setText("");
+                screen.getCreateGameScreen().getLblErrorNoName().setVisible(false);
+                screen.getCreateGameScreen().getLblGameCreated().setVisible(false);
+                screen.show(Screen.MENUSCREEN);
+                //Resetter tekst felter
 
             }//if slut
 
@@ -162,10 +164,12 @@ public class Controller
 
 
             if (e.getSource() == screen.getCreateGameScreen().getBtnCreateGame()){
-                if(screen.getCreateGameScreen().getTxtGameName().getText().equals(""))
+                if(screen.getCreateGameScreen().getTxtGameName().getText().equals("")
+                        ||screen.getCreateGameScreen().getTxtControls().getText().equals(""))
                 {
                     System.out.print("Can't be empty name");
                     screen.getCreateGameScreen().getLblErrorNoName().setVisible(true);
+                    screen.getCreateGameScreen().getLblGameCreated().setVisible(false);
                 }
                 else
                 {
@@ -189,11 +193,13 @@ public class Controller
                 {
                     System.out.print("Game has been created");
                     screen.getCreateGameScreen().getLblGameCreated().setVisible(true);
+                    screen.getCreateGameScreen().getLblErrorNoName().setVisible(false);
                 }
-                else
+                else if (response == 400) {
                     System.out.print("Game was not created");
                     screen.getCreateGameScreen().getLblErrorNoName().setVisible(true);
-
+                    screen.getCreateGameScreen().getLblGameCreated().setVisible(false);
+                }
                 /*if(logic.createGame(gamename, moves)){
 
                     System.out.println("Game has been created");
@@ -243,9 +249,12 @@ public class Controller
                 logic.startGame(game);
                     System.out.println("Game has been joined and started");
                     screen.getJoinGameScreen().getLblGameJoined().setVisible(true);
-                } else
+                    screen.getJoinGameScreen().getLblErrorNoGame().setVisible(false);
+                } else if (response == 400){
                     screen.getJoinGameScreen().getLblErrorNoGame().setVisible(true);
+                    screen.getJoinGameScreen().getLblGameJoined().setVisible(false);
                     System.out.println("Game was not joined");
+                }
             }
         }//actionPerformed slut
     }//inner class slut
@@ -261,6 +270,7 @@ public class Controller
                 screen.show(Screen.MENUSCREEN);
                 screen.getDeleteGameScreen().getLblWrongInput().setVisible(false);
                 screen.getDeleteGameScreen().getLblErrorNoGame().setVisible(false);
+                screen.getDeleteGameScreen().getLblGameDeleted().setVisible(false);
                 screen.getDeleteGameScreen().getTxtGameName().setText("");
             }//if slut
             //Hvis brugeren trykker på delete Game
@@ -270,23 +280,26 @@ public class Controller
             {
                 int gameId=Integer.parseInt(screen.getDeleteGameScreen().getTxtGameName().getText());
                 int response = logic.deleteGame(gameId);
-                if  (response == 200)
-                {
+                if  (response == 200) {
                     System.out.print("Game was deleted");
                     screen.getDeleteGameScreen().getLblGameDeleted().setVisible(true);
+                    screen.getDeleteGameScreen().getLblErrorNoGame().setVisible(false);
+                    screen.getDeleteGameScreen().getLblWrongInput().setVisible(false);
                 }
-                else
+                else if (response == 400) {
 
                     System.out.print("Game was not deleted, try again");
                     screen.getDeleteGameScreen().getLblWrongInput().setVisible(false);
                     screen.getDeleteGameScreen().getLblErrorNoGame().setVisible(true);
-
+                    screen.getDeleteGameScreen().getLblGameDeleted().setVisible(false);
+                }
             }
             } catch (Exception e1)
             {
                 System.out.print("To delete a game type the ID with int");
                 screen.getDeleteGameScreen().getLblWrongInput().setVisible(true);
                 screen.getDeleteGameScreen().getLblErrorNoGame().setVisible(false);
+                screen.getDeleteGameScreen().getLblGameDeleted().setVisible(false);
             }
 
         }//actionPerformed slut

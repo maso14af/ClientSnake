@@ -79,7 +79,7 @@ public class CreateGameScreen extends JPanel
 
 
 		//opretter,giver attributter og adder error label
-		lblErrorNoName = new JLabel("Please type a name");
+		lblErrorNoName = new JLabel("Please type a name and controls");
 		lblErrorNoName.setHorizontalAlignment(SwingConstants.CENTER);
 		lblErrorNoName.setForeground(Color.RED);
 		lblErrorNoName.setBounds(157, 290, 267, 28);
