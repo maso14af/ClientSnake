@@ -313,51 +313,68 @@ public class Controller
         }//End of actionPerformed
     }//End of inner class
 
+    /**
+     * Inner class DeleteGameActionListener is used to delete a game
+     */
     private class DeleteGameActionListener implements ActionListener
     {
+        /**
+         * Method which listens to the buttons in the Delete Game menu.
+         * If the home button is pressed the user is sent back to the menu and all the text fields and labels reset
+         * If the user types an game id of an existing game a confirm label will show.
+         * This happens by a delete request to the server that returns the response code 200 from the server.
+         * If the game id didn't exist an error label will show. Because the game id is an int, a try catch
+         * is made to ensure that the program does not crash if the user doesn't enter an int
+         * @param e is an object of ActionEvent
+         */
         @Override
         public void actionPerformed(ActionEvent e)
         {
             //If the user presses the home button
             if (e.getSource() == screen.getDeleteGameScreen().getBtnHome())
             {
+                //Menu Screen is shown and text fields and labels are reset
                 screen.show(Screen.MENUSCREEN);
                 screen.getDeleteGameScreen().getLblWrongInput().setVisible(false);
                 screen.getDeleteGameScreen().getLblErrorNoGame().setVisible(false);
                 screen.getDeleteGameScreen().getLblGameDeleted().setVisible(false);
                 screen.getDeleteGameScreen().getTxtGameName().setText("");
             }
-            //If the user presses the delete game button
+            //Try catch to prevent crashing from incorrect input
             try
             {
+                //If the user presses the delete game button
                 if (e.getSource() == screen.getDeleteGameScreen().getBtnDeleteGame())
                 {
                     int gameId=Integer.parseInt(screen.getDeleteGameScreen().getTxtGameName().getText());
                     int response = logic.deleteGame(gameId);
-                    if  (response == 200) {
-                        System.out.print("Game was deleted");
+                    if  (response == 200)
+                    {
+                        //If the game is deleted a confirm label will show
                         screen.getDeleteGameScreen().getLblGameDeleted().setVisible(true);
                         screen.getDeleteGameScreen().getLblErrorNoGame().setVisible(false);
                         screen.getDeleteGameScreen().getLblWrongInput().setVisible(false);
                     }
-                    else if (response == 400) {
-
-                        System.out.print("Game was not deleted, try again");
+                    else if (response == 400)
+                    {
+                        //If the game is not deleted an error label will show
                         screen.getDeleteGameScreen().getLblWrongInput().setVisible(false);
                         screen.getDeleteGameScreen().getLblErrorNoGame().setVisible(true);
                         screen.getDeleteGameScreen().getLblGameDeleted().setVisible(false);
                     }
                 }
-            } catch (Exception e1)
+            }
+            //Catch if the user submitted incorrect input
+            catch (Exception e1)
             {
-                System.out.print("To delete a game type the ID with int");
+                //If the user doesn't type an int a error label will show
                 screen.getDeleteGameScreen().getLblWrongInput().setVisible(true);
                 screen.getDeleteGameScreen().getLblErrorNoGame().setVisible(false);
                 screen.getDeleteGameScreen().getLblGameDeleted().setVisible(false);
             }
 
-        }//actionPerformed slut
-    }//inner class slut
+        }//End of actionPerformed
+    }//End of inner class
 
     private class HighScoreActionListener implements ActionListener
     {
