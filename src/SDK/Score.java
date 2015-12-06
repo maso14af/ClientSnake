@@ -1,7 +1,7 @@
 package SDK;
 
 /**
- * This class contains is the same as the User class on the server side
+ * This class contains the same as the User class on the server side
  * This class represents an object of a score with all the attributes of a score
  */
 

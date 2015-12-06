@@ -3,7 +3,7 @@ package SDK;
 import java.sql.Date;
 
 /**
- * This class contains is the same as the User class on the server side
+ * This class contains the same as the User class on the server side
  * This class represents an object of a user with all the attributes of a user
  */
 public class User
