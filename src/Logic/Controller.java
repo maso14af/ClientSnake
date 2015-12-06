@@ -11,16 +11,17 @@ import java.util.ArrayList;
 
 
 
-
+//Start of class
 public class Controller
 {
+    //Declaring variables used in this class
     private Screen screen;
     private Logic logic;
     private User currentUser;
 
 
     /**
-     * Opretter konstruktur. Laver objekt af screen.
+     * Creating constructor and making object of Screen.
      */
     public Controller()
     {
@@ -29,48 +30,47 @@ public class Controller
         screen.setVisible(true);
 
         currentUser = new User();
-    }//konstruktør slut
+    }//End of constructor
 
     /**
-     * metoden Main klassen kaldes for at starte programmet
+     * Method run() is called from the Main class to start the program
      */
     public void run()
     {
-
-
-        // Injection af listeners i panels
+        //Injection of listeners to the panels
         screen.loginScreen.addActionListener(new LoginActionListener());
         screen.getMenuScreen().addActionListener(new MenuScreenActionListener());
         screen.getCreateGameScreen().addActionListener(new CreateGameActionListener());
         screen.getJoinGameScreen().addActionListener(new JoinGameActionListener());
         screen.getDeleteGameScreen().addActionListener(new DeleteGameActionListener());
         screen.getHighScoreScreen().addActionListener(new HighScoreActionListener());
-        // vis startskaerm
+        //Login Screen is shown after injections are done
         screen.show(Screen.LOGINSCREEN);
-
-
-
     }
 
-    public void showHighScores()
-    {
-        ArrayList<Score> highScores = logic.getHighScores();
-        HighScoreTableModel highScoreTableModel = new HighScoreTableModel(highScores);
-        screen.getHighScoreScreen().getTable().setModel(highScoreTableModel);
-
-    }
-
+    /**
+     * Inner class LoginActionListener is used to login.
+     */
     private class LoginActionListener implements ActionListener
     {
+        /**
+         * The method activates when the login button is pressed, when it is pressed it checks whether or not
+         * the username and password in the text and password fields
+         * matches something in the database. If it does the user is sent to the menu screen,
+         * if it doesn't an error label is made visible telling the user that username or password is wrong
+         * @param e is an object of ActionEvent
+         */
         @Override
         public void actionPerformed(ActionEvent e)
         {
-            //Når der trykkes på login
+
+            //When the login button is pressed
             if (e.getSource() == screen.getLoginScreen().getBtnLogin())
             {
                 String username = screen.getLoginScreen().getTxtUser().getText();
                 String password = screen.getLoginScreen().getTxtPassword().getText();
 
+                //Sets currentUser to the text in the text and password fields
                 currentUser.setUsername(username);
                 currentUser.setPassword(password);
 
@@ -79,71 +79,77 @@ public class Controller
                 if(response == 200)
                 {
                     for (User user : logic.getUsers())
-                    {
+                    {   //Checks if the username and password typed exists
                         if (user.getUsername().equals(screen.getLoginScreen().getTxtUser().getText()))
                         {
                             currentUser = user;
                         }
                     }
-
+                    //If user exists and password is correct the menu screen is shown
                     screen.show(Screen.MENUSCREEN);
                 }
                 else
+                    //If incorrect logon the error label is made visible
                     screen.getLoginScreen().getLblError().setVisible(true);
 
 
-            }//if listener slut
-        }//actionPerformed slut
-    }//inner class slut
+            }//End of if listener
+        }//End of actionPerformed
+    }//End of inner class
 
     /**
-     * inner class
-     * UserMenu panel actionlistener
-     * Styrer menu screen
+     * Inner class
+     * MenuScreen panel actionListener
+     * Controls menu screen
      */
+    //Start of class
     private class MenuScreenActionListener implements ActionListener
     {
+        /**
+         * Method which listens to all the buttons on the menu screen.
+         * When a specific button is pressed the method sends the user to that screen by using
+         * screen.show(). All the if statements work the same way, except the logout which also clears the
+         * text that the user has previously typed as well as making any error labels hidden again. The high score
+         * button also runs a method called showHighScores()
+         * @param e is an object of ActionEvent
+         */
         @Override
         public void actionPerformed(ActionEvent e)
         {
-            //Hvis brugeren trykker på Create Game
+            //If the user presses the create game button
             if (e.getSource() == screen.getMenuScreen().getBtnCreateGame())
             {
                 screen.show(Screen.CREATEGAMESCREEN);
                 System.out.print(currentUser.getId());
-            }//if slut
-            //Hvis brugeren trykker på delete game
+            }
+            //If the user presses the delete game button
             if (e.getSource() == screen.getMenuScreen().getBtnDeleteGame())
             {
                 screen.show(Screen.DELETEGAMESCREEN);
-            }//if slut
-            //Hvis brugeren trykker på High Scores
+            }
+            //If the user presses the high score button
             if (e.getSource() == screen.getMenuScreen().getBtnHighScore())
             {
                 screen.show(Screen.HIGHSCORESCREEN);
                 showHighScores();
-            }//if slut
+            }
 
-
-            //Hvis brugeren trykker på Join Game .
+            //If the user presses the join game button
             if (e.getSource() == screen.getMenuScreen().getBtnJoinGame())
             {
                 screen.show(Screen.JOINGAMESCREEN);
-                //Resetter evt. tekst i felterne.
-                // screen.getJoinGameScreen().getTxtGameName().setText("");
-            }//if slut
-            //hvis brugeren trykker log af knap
+            }
+            //If the user presses the logout button
             if (e.getSource() == screen.getMenuScreen().getBtnLogout())
             {
-                //sender videre til valgte panel
                 screen.show(Screen.LOGINSCREEN);
-                //Resetter felterne
+                //Resets text and password fields and making error hidden.
                 screen.getLoginScreen().getTxtUser().setText("");
                 screen.getLoginScreen().getTxtPassword().setText("");
                 screen.getLoginScreen().getLblError().setVisible(false);
             }
-        }//actionPerformed slut
-    }//inner class slut
+        }//End of actionPerformed
+    }//End of inner class.
 
     private class CreateGameActionListener implements ActionListener
     {
@@ -383,6 +389,10 @@ public class Controller
         }
     }
 
-
-
-}//klasse slut
+    public void showHighScores()
+    {
+        ArrayList<Score> highScores = logic.getHighScores();
+        HighScoreTableModel highScoreTableModel = new HighScoreTableModel(highScores);
+        screen.getHighScoreScreen().getTable().setModel(highScoreTableModel);
+    }
+}//End of class Controller
