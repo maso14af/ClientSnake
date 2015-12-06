@@ -403,34 +403,54 @@ public class Controller
 
     /**
      * Inner class HighScoreTableModel is used to retrieve the top 10 scores from the server
+     * Method is used to get the variables that are needed to form the JTable with the high scores.
+     * In this method it is also set which attributes are to be shown in the JTable, here Username and Score are
+     * shown. More attributes can always be added.
      * Extends AbstractTableModel
      */
     public class HighScoreTableModel extends AbstractTableModel
     {
+        //Initializing of variables used
         private static final long serialVersionUID = 1L;
-
         private ArrayList<Score> highScores;
         private String[] columns = {"Username", "Score"};
         private int numberOfRows;
 
+        /**
+         * Setter for highScores, sets the high scores to the Array the high scores
+         * @param highScores is an ArrayList of Score
+         */
         public HighScoreTableModel(ArrayList<Score> highScores)
         {
             this.highScores = highScores;
             fireTableStructureChanged();
         }
 
+        /**
+         * Getter for columns.length, the method returns the number of columns
+         * @return columns.length
+         */
         @Override
         public int getColumnCount()
         {
             return columns.length;
         }
 
+        /**
+         * Method that returns the columnIndex
+         * @param columnIndex returns the ColumnIndex
+         * @return super.getColumnClass(columnIndex);
+         */
         @Override
         public Class<?> getColumnClass(int columnIndex)
         {
             return super.getColumnClass(columnIndex);
         }
 
+        /**
+         * getter for numberOfRows, this method returns the number of rows
+         * @return numberOfRows
+         */
         @Override
         public int getRowCount()
         {
@@ -438,13 +458,22 @@ public class Controller
             return numberOfRows;
         }
 
+        /**
+         * Method that returns the number of columns.
+         * @param columnIndex Number of columns
+         * @return columns[columnIndex]
+         */
         public String getColumnName(int columnIndex)
         {
-
             return columns[columnIndex];
-
         }
 
+        /**
+         * Method using a get request to retrieve the username and belonging scores.
+         * @param rowIndex is the rowIndex from the previous getter
+         * @param columnIndex is the columnIndex from the previous getter
+         * @return null
+         */
         @Override
         public Object getValueAt(int rowIndex, int columnIndex)
         {
