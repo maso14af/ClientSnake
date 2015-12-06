@@ -469,7 +469,8 @@ public class Controller
         }
 
         /**
-         * Method using a get request to retrieve the username and belonging scores.
+         * Method to get the username and belonging scores, this is done by using the rowIndex and columnIndex
+         * gotten from the get methods.
          * @param rowIndex is the rowIndex from the previous getter
          * @param columnIndex is the columnIndex from the previous getter
          * @return null
