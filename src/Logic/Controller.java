@@ -402,10 +402,10 @@ public class Controller
     }//End of inner class
 
     /**
-     * Inner class HighScoreTableModel is used to retrieve the top 10 scores from the server
-     * Method is used to get the variables that are needed to form the JTable with the high scores.
-     * In this method it is also set which attributes are to be shown in the JTable, here Username and Score are
-     * shown. More attributes can always be added.
+     * Inner class HighScoreTableModel is used to retrieve the top 10 scores from the server.
+     * Class is used to get the variables that are needed to form the JTable with the high scores.
+     * In this class it is also set which attributes are to be shown in the JTable, here Username and Score are
+     * shown.
      * Extends AbstractTableModel
      */
     public class HighScoreTableModel extends AbstractTableModel
