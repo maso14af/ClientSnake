@@ -1,22 +1,23 @@
 package SDK;
 
 /**
- * Created by nicolaiostergaard on 12/10/15.
+ * This class contains is the same as the User class on the server side
+ * This class represents an object of a score with all the attributes of a score
  */
 
 
-// Creates class Score
-public class Score {
+// Creation of class score
+public class Score
+{
 
-    // Declare highScore
+    // Declaring of variables used in this class
     private int id;
     private Gamer user;
     private Gamer opponent;
     private Game game;
     private int score;
 
-    //TODO: Kan slettes?! Bruges ikke i wrapper længere.
-    // Creates constructor
+    // Constructor for Score
     public Score(int id, Gamer user, Game game, Gamer opponent, int score)
     {
         this.id = id;
@@ -30,39 +31,93 @@ public class Score {
 
     // Creates get method which returns the highScore
 
-    public Gamer getOpponent() { return opponent; }
+    /**
+     * get opponent
+     * @return opponent
+     */
+    public Gamer getOpponent()
+    {
+        return opponent;
+    }
 
-    public void setOpponent(Gamer opponent) { this.opponent = opponent;  }
+    /**
+     * Setter for opponent
+     * @param opponent sets the opponent
+     */
+    public void setOpponent(Gamer opponent)
+    {
+        this.opponent = opponent;
+    }
 
-    public int getId() {
+    /**
+     * Getter for id
+     * @return id
+     */
+    public int getId()
+    {
         return id;
     }
 
-    public void setId(int id) {
+    /**
+     * Setter for id
+     * @param id sets the id for a score
+     */
+    public void setId(int id)
+    {
         this.id = id;
     }
 
-    public Gamer getUser() {
+    /**
+     * Getter for user
+     * @return user
+     */
+    public Gamer getUser()
+    {
         return user;
     }
 
-    public void setUser(Gamer user) {
+    /**
+     * Setter for user
+     * @param user sets the user for a score
+     */
+    public void setUser(Gamer user)
+    {
         this.user = user;
     }
 
-    public Game getGame() {
+    /**
+     * Getter for game
+     * @return game
+     */
+    public Game getGame()
+    {
         return game;
     }
 
-    public void setGame(Game game) {
+    /**
+     * Setter for game
+     * @param game sets the game for a score
+     */
+    public void setGame(Game game)
+    {
         this.game = game;
     }
 
-    public int getScore() {
+    /**
+     * Getter for score
+     * @return score
+     */
+    public int getScore()
+    {
         return score;
     }
 
-    public void setScore(int score) {
+    /**
+     * Setter for score
+     * @param score sets the score
+     */
+    public void setScore(int score)
+    {
         this.score = score;
     }
-}
+}//End of class Score
