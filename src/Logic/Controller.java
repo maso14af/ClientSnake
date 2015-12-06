@@ -91,7 +91,7 @@ public class Controller
                         }
                     }
 
-                    screen.show(screen.MENUSCREEN);
+                    screen.show(Screen.MENUSCREEN);
                 }
                 else
                     screen.getLoginScreen().getLblError().setVisible(true);
@@ -120,12 +120,12 @@ public class Controller
             //Hvis brugeren trykker på delete game
             if (e.getSource() == screen.getMenuScreen().getBtnDeleteGame())
             {
-            screen.show(Screen.DELETEGAMESCREEN);
+                screen.show(Screen.DELETEGAMESCREEN);
             }//if slut
             //Hvis brugeren trykker på High Scores
             if (e.getSource() == screen.getMenuScreen().getBtnHighScore())
             {
-              screen.show(Screen.HIGHSCORESCREEN);
+                screen.show(Screen.HIGHSCORESCREEN);
                 showHighScores();
             }//if slut
 
@@ -133,9 +133,9 @@ public class Controller
             //Hvis brugeren trykker på Join Game .
             if (e.getSource() == screen.getMenuScreen().getBtnJoinGame())
             {
-            screen.show(Screen.JOINGAMESCREEN);
-               //Resetter evt. tekst i felterne.
-               // screen.getJoinGameScreen().getTxtGameName().setText("");
+                screen.show(Screen.JOINGAMESCREEN);
+                //Resetter evt. tekst i felterne.
+                // screen.getJoinGameScreen().getTxtGameName().setText("");
             }//if slut
             //hvis brugeren trykker log af knap
             if (e.getSource() == screen.getMenuScreen().getBtnLogout())
@@ -182,35 +182,35 @@ public class Controller
                 {
 
 
-                String gameName = screen.getCreateGameScreen().getTxtGameName().getText();
-                String moves = screen.getCreateGameScreen().getTxtControls().getText();
+                    String gameName = screen.getCreateGameScreen().getTxtGameName().getText();
+                    String moves = screen.getCreateGameScreen().getTxtControls().getText();
 
-                Gamer host = new Gamer();
-                host.setId(currentUser.getId());
-                host.setControls(moves);
+                    Gamer host = new Gamer();
+                    host.setId(currentUser.getId());
+                    host.setControls(moves);
 
-                Game game = new Game();
-                game.setName(gameName);
-                game.setHost(host);
-                game.setMapSize(20);
+                    Game game = new Game();
+                    game.setName(gameName);
+                    game.setHost(host);
+                    game.setMapSize(20);
 
-                int response = logic.createGame(game);
+                    int response = logic.createGame(game);
 
-                if (response == 201)
-                {
-                    System.out.print("Game has been created");
-                    screen.getCreateGameScreen().getLblGameCreated().setVisible(true);
-                    screen.getCreateGameScreen().getLblErrorNoName().setVisible(false);
-                }
-                else if (response == 400) {
-                    System.out.print("Game was not created");
-                    screen.getCreateGameScreen().getLblErrorNoName().setVisible(true);
-                    screen.getCreateGameScreen().getLblGameCreated().setVisible(false);
-                }
+                    if (response == 201)
+                    {
+                        System.out.print("Game has been created");
+                        screen.getCreateGameScreen().getLblGameCreated().setVisible(true);
+                        screen.getCreateGameScreen().getLblErrorNoName().setVisible(false);
+                    }
+                    else if (response == 400) {
+                        System.out.print("Game was not created");
+                        screen.getCreateGameScreen().getLblErrorNoName().setVisible(true);
+                        screen.getCreateGameScreen().getLblGameCreated().setVisible(false);
+                    }
 
 
 
-            }}
+                }}
 
         }//actionPerformed slut
     }//inner class slut
@@ -233,46 +233,46 @@ public class Controller
             if (e.getSource() == screen.getJoinGameScreen().getBtnJoinGame())
             {
                 if(screen.getJoinGameScreen().getTxtGameName().getText().equals("")
-                    ||screen.getJoinGameScreen().getTxtControls().getText().equals(""))
+                        ||screen.getJoinGameScreen().getTxtControls().getText().equals(""))
                 {
-                System.out.print("Enter controls and game name");
-                screen.getJoinGameScreen().getLblNoControls().setVisible(true);
-                screen.getJoinGameScreen().getLblErrorNoGame().setVisible(false);
-                screen.getJoinGameScreen().getLblGameJoined().setVisible(false);
-            }
+                    System.out.print("Enter controls and game name");
+                    screen.getJoinGameScreen().getLblNoControls().setVisible(true);
+                    screen.getJoinGameScreen().getLblErrorNoGame().setVisible(false);
+                    screen.getJoinGameScreen().getLblGameJoined().setVisible(false);
+                }
                 else
                 {
-                String moves = screen.getJoinGameScreen().getTxtControls().getText();
+                    String moves = screen.getJoinGameScreen().getTxtControls().getText();
 
-                Gamer opponent = new Gamer();
-                opponent.setId(currentUser.getId());
-                opponent.setControls(moves);
+                    Gamer opponent = new Gamer();
+                    opponent.setId(currentUser.getId());
+                    opponent.setControls(moves);
 
 
-                Game game = new Game();
-                game.setOpponent(opponent);
+                    Game game = new Game();
+                    game.setOpponent(opponent);
 
-                for (Game g : logic.openGames())
-                {
-                    if (g.getName().equals(screen.getJoinGameScreen().getTxtGameName().getText()))
+                    for (Game g : logic.openGames())
                     {
-                        game.setGameId(g.getGameId());
+                        if (g.getName().equals(screen.getJoinGameScreen().getTxtGameName().getText()))
+                        {
+                            game.setGameId(g.getGameId());
+                        }
                     }
-                }
-                int response = logic.joinGame(game);
-                if (response == 201)
-                {
-                logic.startGame(game);
-                    System.out.println("Game has been joined and started");
-                    screen.getJoinGameScreen().getLblGameJoined().setVisible(true);
-                    screen.getJoinGameScreen().getLblErrorNoGame().setVisible(false);
-                    screen.getJoinGameScreen().getLblNoControls().setVisible(false);
-                } else if (response == 400){
-                    screen.getJoinGameScreen().getLblErrorNoGame().setVisible(true);
-                    screen.getJoinGameScreen().getLblGameJoined().setVisible(false);
-                    screen.getJoinGameScreen().getLblNoControls().setVisible(false);
-                    System.out.println("Game was not joined");
-                }
+                    int response = logic.joinGame(game);
+                    if (response == 201)
+                    {
+                        logic.startGame(game);
+                        System.out.println("Game has been joined and started");
+                        screen.getJoinGameScreen().getLblGameJoined().setVisible(true);
+                        screen.getJoinGameScreen().getLblErrorNoGame().setVisible(false);
+                        screen.getJoinGameScreen().getLblNoControls().setVisible(false);
+                    } else if (response == 400){
+                        screen.getJoinGameScreen().getLblErrorNoGame().setVisible(true);
+                        screen.getJoinGameScreen().getLblGameJoined().setVisible(false);
+                        screen.getJoinGameScreen().getLblNoControls().setVisible(false);
+                        System.out.println("Game was not joined");
+                    }
                 }
             }
         }//actionPerformed slut
@@ -295,24 +295,24 @@ public class Controller
             //Hvis brugeren trykker på delete Game
             try
             {
-            if (e.getSource() == screen.getDeleteGameScreen().getBtnDeleteGame())
-            {
-                int gameId=Integer.parseInt(screen.getDeleteGameScreen().getTxtGameName().getText());
-                int response = logic.deleteGame(gameId);
-                if  (response == 200) {
-                    System.out.print("Game was deleted");
-                    screen.getDeleteGameScreen().getLblGameDeleted().setVisible(true);
-                    screen.getDeleteGameScreen().getLblErrorNoGame().setVisible(false);
-                    screen.getDeleteGameScreen().getLblWrongInput().setVisible(false);
-                }
-                else if (response == 400) {
+                if (e.getSource() == screen.getDeleteGameScreen().getBtnDeleteGame())
+                {
+                    int gameId=Integer.parseInt(screen.getDeleteGameScreen().getTxtGameName().getText());
+                    int response = logic.deleteGame(gameId);
+                    if  (response == 200) {
+                        System.out.print("Game was deleted");
+                        screen.getDeleteGameScreen().getLblGameDeleted().setVisible(true);
+                        screen.getDeleteGameScreen().getLblErrorNoGame().setVisible(false);
+                        screen.getDeleteGameScreen().getLblWrongInput().setVisible(false);
+                    }
+                    else if (response == 400) {
 
-                    System.out.print("Game was not deleted, try again");
-                    screen.getDeleteGameScreen().getLblWrongInput().setVisible(false);
-                    screen.getDeleteGameScreen().getLblErrorNoGame().setVisible(true);
-                    screen.getDeleteGameScreen().getLblGameDeleted().setVisible(false);
+                        System.out.print("Game was not deleted, try again");
+                        screen.getDeleteGameScreen().getLblWrongInput().setVisible(false);
+                        screen.getDeleteGameScreen().getLblErrorNoGame().setVisible(true);
+                        screen.getDeleteGameScreen().getLblGameDeleted().setVisible(false);
+                    }
                 }
-            }
             } catch (Exception e1)
             {
                 System.out.print("To delete a game type the ID with int");

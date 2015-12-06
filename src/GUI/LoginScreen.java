@@ -12,10 +12,12 @@ import javax.swing.JPasswordField;
 
 /**
  * This class contains the LoginScreen GUI, this class has the getters for all
- * the textFields and confirm/ error labels used in the Login menu. The logic for the class is in the
+ * the textFields and confirm/ error labels used in the Login menu as well as listener for the button.
+ * The logic for the class is in the
  * controller class in the Logic package.
  *extends JPanel
  */
+//Start of class
 public class LoginScreen extends JPanel 
 {
 	//Declaring of variables used in this class
@@ -118,7 +120,7 @@ public class LoginScreen extends JPanel
 	}
 
 	/**
-	 * Creating actions listeners used in this screen
+	 * Creating actions listeners used in this panel
 	 * @param l object of action listener
 	 */
 

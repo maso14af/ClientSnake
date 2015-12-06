@@ -14,7 +14,8 @@ import javax.swing.SwingConstants;
 
 /**
  * This class contains the CreateGameScreen GUI, this class has the getters for all
- * the textFields and confirm/ error labels used in the Create Game menu. The logic for the class is in the
+ * the textFields and confirm/ error labels used in the Create Game menu as well as listeners for the buttons
+ * The logic for the class is in the
  * controller class in the Logic package.
  *extends JPanel
  */

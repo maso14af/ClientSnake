@@ -9,7 +9,8 @@ import javax.swing.*;
 
 /**
  * This class contains the HighScoreScreen GUI, this class has the getters for all
- * the home Button and JTable. The logic for the class is in the controller class in the Logic package.
+ * the home Button and JTable as well as listeners for the buttons.
+ * The logic for the class is in the controller class in the Logic package.
  *extends JPanel
  */
 public class HighScoreScreen extends JPanel 
@@ -80,7 +81,7 @@ public class HighScoreScreen extends JPanel
 	public JButton getBtnHome() 
 	{
 		return btnHome;
-	}//metode slut	
+	}//
 
 	/**
 	 * Creating action listeners for this panel
