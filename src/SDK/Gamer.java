@@ -104,4 +104,4 @@ public class Gamer extends User
     {
         this.controls = controls;
     }
-}
+}//End of class Gamer
