@@ -14,7 +14,7 @@ import javax.swing.*;
  */
 public class HighScoreScreen extends JPanel 
 {
-	//Initializing variables used in this class
+	//Declaring variables used in this class
 	private JLabel lblHighScore;
 	private JButton btnHome;
 	private JTable table;
@@ -84,10 +84,10 @@ public class HighScoreScreen extends JPanel
 
 	/**
 	 * Creating action listeners for this panel
-	 * @param l
+	 * @param l object of action listener
 	 */
 	public void addActionListener(ActionListener l) 
 	{
 		btnHome.addActionListener(l);
-	}//metode slut	
+	}//End of method
 }//End of class HighScoreScreen

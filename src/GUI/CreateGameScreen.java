@@ -20,7 +20,7 @@ import javax.swing.SwingConstants;
  */
 public class CreateGameScreen extends JPanel
 {
-	//Initializing of local variables
+	//Declaring of local variables
 	private JLabel lblCreateGame;
 	private JLabel lblControls;
 	private JTextField txtGameName;
@@ -60,7 +60,7 @@ public class CreateGameScreen extends JPanel
 		add(txtGameName);
 		txtGameName.setColumns(10);
 
-		//Creating Home button and adding attributes aswell as image
+		//Creating Home button and adding attributes as well as image
 		btnHome = new JButton();
 		Image imgHome = new ImageIcon(this.getClass().getResource("/res/btnHome.png")).getImage();
 		btnHome.setIcon(new ImageIcon(imgHome));
@@ -143,7 +143,7 @@ public class CreateGameScreen extends JPanel
 	public JTextField getTxtControls()
 	{
 		return txtControls;
-	}//metode slut
+	}
 
 	/**
 	 * Getter for txtGameName
@@ -152,12 +152,12 @@ public class CreateGameScreen extends JPanel
 	public JTextField getTxtGameName()
 	{
 		return txtGameName;
-	}//metode slut
+	}
 
 
 	/**
 	 * Creates actionListeners for this panel
-	 * @param l
+	 * @param l object of action listener
 	 */
 	public void addActionListener(ActionListener l)
 	{

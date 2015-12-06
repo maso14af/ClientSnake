@@ -19,7 +19,7 @@ import javax.swing.SwingConstants;
  */
 public class JoinGameScreen extends JPanel
 {
-	//Initializing of variables used in this class
+	//Declaring of variables used in this class
 	private JLabel lblJoinGame;
 	private JTextField txtControls;
 	private JButton btnHome;
@@ -31,6 +31,9 @@ public class JoinGameScreen extends JPanel
 	private JLabel lblNoControls;
 	private JLabel lblGameName;
 
+	/**
+	 * Creation of the Join Game panel
+	 */
 	public JoinGameScreen()
 	{
 		setLayout(null);
@@ -158,7 +161,6 @@ public class JoinGameScreen extends JPanel
 		return txtControls;
 	}
 
-
 	/**
 	 * Getter for lblErrorNoGame
 	 * @return lblErrorNoGame
@@ -167,9 +169,10 @@ public class JoinGameScreen extends JPanel
 	{
 		return lblErrorNoGame;
 	}
+
 	/**
 	 * Creating action listeners for this panel
-	 * @param l
+	 * @param l object of action listener
 	 */
 	public void addActionListener(ActionListener l)
 	{

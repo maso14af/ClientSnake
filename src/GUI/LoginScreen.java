@@ -11,12 +11,14 @@ import javax.swing.SwingConstants;
 import javax.swing.JPasswordField;
 
 /**
- *Panel for login screen
+ * This class contains the LoginScreen GUI, this class has the getters for all
+ * the textFields and confirm/ error labels used in the Login menu. The logic for the class is in the
+ * controller class in the Logic package.
  *extends JPanel
  */
 public class LoginScreen extends JPanel 
 {
-	//instantiere variabler
+	//Declaring of variables used in this class
 	private JTextField txtUser;
 	private JPasswordField txtPassword;
 	private JLabel lblLogin;
@@ -26,7 +28,7 @@ public class LoginScreen extends JPanel
 	private JLabel lblError;
 
 	/**
-	 * Create the panel.
+	 * Creation of the Login Screen panel
 	 */
 	public LoginScreen() 
 	{
@@ -34,42 +36,42 @@ public class LoginScreen extends JPanel
 		setLayout(null);
 		setBounds(100, 100, 529, 475);
 
-		//opretter,giver attributter og adder username textfield
+		//Creating user name text field and adding attributes
 		txtUser = new JTextField();
 		txtUser.setBounds(153, 237, 266, 28);
 		add(txtUser);
 		txtUser.setColumns(10);
 
-		//opretter,giver attributter og adder password textfield
+		//Creating password password field and adding attributes
 		txtPassword = new JPasswordField();
 		txtPassword.setColumns(10);
 		txtPassword.setBounds(153, 277, 266, 28);
 		add(txtPassword);
 
-		//opretter,giver attributter og adder login label
+		//Creating login label and adding attributes
 		lblLogin = new JLabel("Username:");
 		lblLogin.setForeground(Color.WHITE);
 		lblLogin.setBounds(67, 234, 85, 34);
 		add(lblLogin);
 
-		//opretter,giver attributter og adder password label
+		//Creating password label and adding attributes
 		lblPassword = new JLabel("Password:");
 		lblPassword.setForeground(Color.WHITE);
 		lblPassword.setBounds(67, 274, 85, 34);
 		add(lblPassword);
 
-		//opretter,giver attributter og adder login knap
+		//Creating login button and adding attributes
 		btnLogin = new JButton("Login");
 		btnLogin.setBounds(222, 332, 117, 29);
 		add(btnLogin);
 
-		//opretter,giver attributter og adder logoet 
+		//Creating logo label and adding attributes as well as image
 		lblLogo = new JLabel("");
 		lblLogo.setIcon(new ImageIcon(LoginScreen.class.getResource("/res/Snake.jpg")));
 		lblLogo.setBounds(94, 33, 325, 158);
 		add(lblLogo);
 
-		//opretter,giver attributter og adder error label
+		//Creating hidden error label and adding attributes
 		lblError = new JLabel("Incorrect combination, try again.");
 		lblError.setForeground(Color.RED);
 		lblError.setHorizontalAlignment(SwingConstants.CENTER);
@@ -77,7 +79,7 @@ public class LoginScreen extends JPanel
 		lblError.setVisible(false);
 		add(lblError);
 
-	}//metode slut
+	}//End of method
 
 
 	/**
@@ -87,7 +89,7 @@ public class LoginScreen extends JPanel
 	public JTextField getTxtUser() 
 	{
 		return txtUser;
-	}//metode slut
+	}
 
 	/**
 	 * Getters for txtPassword
@@ -96,19 +98,6 @@ public class LoginScreen extends JPanel
 	public JTextField getTxtPassword()
 	{
 		return txtPassword;
-	}//metode slut
-
-	/**
-	 * Getters for btnLogin
-	 * @return btnLogin
-	 */
-	public JButton getbtnLogin()
-	{
-		return btnLogin;
-	}//metode slut
-
-	public void setLblError(JLabel lblError) {
-		this.lblError = lblError;
 	}
 
 	/**
@@ -126,15 +115,15 @@ public class LoginScreen extends JPanel
 	public JButton getBtnLogin()
 	{
 		return btnLogin;
-	}//metode slut
+	}
 
 	/**
-	 * opretter actionlistener for dette panel
-	 * @param l
+	 * Creating actions listeners used in this screen
+	 * @param l object of action listener
 	 */
 
 	public void addActionListener(ActionListener l) 
 	{
 		btnLogin.addActionListener(l);
-	}//metode slut
-}//klasse slut
+	}//End of method
+}//End of class LoginScreen

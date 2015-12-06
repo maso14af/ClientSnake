@@ -23,7 +23,7 @@ import java.awt.event.ActionEvent;
  */
 public class DeleteGameScreen extends JPanel 
 {
-	//Initializing of variables used in this class
+	//Declaring of variables used in this class
 	private JLabel lblDeleteGame;
 	private JTextField txtGameName;
 	private JButton btnHome;
@@ -133,7 +133,7 @@ public class DeleteGameScreen extends JPanel
 	public JTextField getTxtGameName() 
 	{
 		return txtGameName;
-	}//metode slut
+	}
 	
 	/**
 	 * Getter for lblErrorNoGame
@@ -142,7 +142,7 @@ public class DeleteGameScreen extends JPanel
 	public JLabel getLblErrorNoGame() 
 	{
 		return lblErrorNoGame;
-	}//metode slut
+	}
 
     /**
      * Getter for btnDeleteGame
@@ -154,7 +154,7 @@ public class DeleteGameScreen extends JPanel
 
 	/**
 	 * Creating action listeners for this panel
-	 * @param l
+	 * @param l object of action listener
 	 */
 	public void addActionListener(ActionListener l) 
 	{
