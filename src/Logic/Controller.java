@@ -222,84 +222,103 @@ public class Controller
                         screen.getCreateGameScreen().getLblErrorNoName().setVisible(true);
                         screen.getCreateGameScreen().getLblGameCreated().setVisible(false);
                     }
-
-
-
                 }
             }
 
         }//End of actionPerformed
     }//End of inner class
 
+    /**
+     * Inner class JoinGameActionListener is used to join a game
+     */
     private class JoinGameActionListener implements ActionListener
     {
+        /**
+         * Method which listens to the buttons in the Join Game Menu. If the Home Button is pressed the user
+         * is returned to the menu screen and all the fields and labels are reset. When the join game button is
+         * pressed with correct information a confirm label will show.
+         * The controls entered by the user are set to the opponent controls and put on the game object which
+         * is send to the server.
+         * @param e is an object of ActionEvent
+         */
         @Override
         public void actionPerformed(ActionEvent e)
         {
-            //Hvis brugeren trykker på Home knap
+            //If the user presses the home button
             if (e.getSource() == screen.getJoinGameScreen().getBtnHome())
             {
+                //Reset of text fields and labels
                 screen.getJoinGameScreen().getLblNoControls().setVisible(false);
                 screen.getJoinGameScreen().getLblErrorNoGame().setVisible(false);
                 screen.getJoinGameScreen().getLblGameJoined().setVisible(false);
                 screen.getJoinGameScreen().getTxtControls().setText("");
                 screen.getJoinGameScreen().getTxtGameName().setText("");
                 screen.show(Screen.MENUSCREEN);
-            }//if slut
+            }
+
+            //If the join game button is pressed
             if (e.getSource() == screen.getJoinGameScreen().getBtnJoinGame())
             {
+                //If statement to check if there is an empty text field
                 if(screen.getJoinGameScreen().getTxtGameName().getText().equals("")
                         ||screen.getJoinGameScreen().getTxtControls().getText().equals(""))
                 {
-                    System.out.print("Enter controls and game name");
+                    //If there is an empty field an error label will show
                     screen.getJoinGameScreen().getLblNoControls().setVisible(true);
                     screen.getJoinGameScreen().getLblErrorNoGame().setVisible(false);
                     screen.getJoinGameScreen().getLblGameJoined().setVisible(false);
                 }
                 else
                 {
+                    //Saves the moves of the user
                     String moves = screen.getJoinGameScreen().getTxtControls().getText();
 
+                    //Creates a gamer opponent with id and controls of the currentUser
                     Gamer opponent = new Gamer();
                     opponent.setId(currentUser.getId());
                     opponent.setControls(moves);
 
-
+                    //Creates an object of game and sets the opponent and his controls.
                     Game game = new Game();
                     game.setOpponent(opponent);
 
+                    //Searches for a game by the game name typed by the user
                     for (Game g : logic.openGames())
                     {
+                        //If the game name exists the id of the game is set to the object of game
                         if (g.getName().equals(screen.getJoinGameScreen().getTxtGameName().getText()))
                         {
                             game.setGameId(g.getGameId());
                         }
                     }
                     int response = logic.joinGame(game);
+                    //If statement to check the response code from the server
                     if (response == 201)
                     {
+                        //Starts the game
                         logic.startGame(game);
-                        System.out.println("Game has been joined and started");
+                        //If the game has been joined a confirm label will show
                         screen.getJoinGameScreen().getLblGameJoined().setVisible(true);
                         screen.getJoinGameScreen().getLblErrorNoGame().setVisible(false);
                         screen.getJoinGameScreen().getLblNoControls().setVisible(false);
-                    } else if (response == 400){
+                    } else if (response == 400)
+                    {
+                        //If the game was not joined an error label will show
                         screen.getJoinGameScreen().getLblErrorNoGame().setVisible(true);
                         screen.getJoinGameScreen().getLblGameJoined().setVisible(false);
                         screen.getJoinGameScreen().getLblNoControls().setVisible(false);
-                        System.out.println("Game was not joined");
                     }
                 }
             }
-        }//actionPerformed slut
-    }//inner class slut
+        }//End of actionPerformed
+    }//End of inner class
 
     private class DeleteGameActionListener implements ActionListener
     {
         @Override
         public void actionPerformed(ActionEvent e)
         {
-            //Hvis brugeren trykker på Home knap
+            //If the user presses the home button
             if (e.getSource() == screen.getDeleteGameScreen().getBtnHome())
             {
                 screen.show(Screen.MENUSCREEN);
@@ -307,8 +326,8 @@ public class Controller
                 screen.getDeleteGameScreen().getLblErrorNoGame().setVisible(false);
                 screen.getDeleteGameScreen().getLblGameDeleted().setVisible(false);
                 screen.getDeleteGameScreen().getTxtGameName().setText("");
-            }//if slut
-            //Hvis brugeren trykker på delete Game
+            }
+            //If the user presses the delete game button
             try
             {
                 if (e.getSource() == screen.getDeleteGameScreen().getBtnDeleteGame())
@@ -369,30 +388,36 @@ public class Controller
         }
 
         @Override
-        public int getColumnCount() {
+        public int getColumnCount()
+        {
             return columns.length;
         }
 
         @Override
-        public Class<?> getColumnClass(int columnIndex) {
+        public Class<?> getColumnClass(int columnIndex)
+        {
             return super.getColumnClass(columnIndex);
         }
 
         @Override
-        public int getRowCount() {
+        public int getRowCount()
+        {
             numberOfRows = highScores.size();
             return numberOfRows;
         }
 
-        public String getColumnName(int columnIndex) {
+        public String getColumnName(int columnIndex)
+        {
 
             return columns[columnIndex];
 
         }
 
         @Override
-        public Object getValueAt(int rowIndex, int columnIndex) {
-            switch (columnIndex) {
+        public Object getValueAt(int rowIndex, int columnIndex)
+        {
+            switch (columnIndex)
+            {
 
                 case 0:
                     return highScores.get(rowIndex).getGame().getWinner().getUsername();
