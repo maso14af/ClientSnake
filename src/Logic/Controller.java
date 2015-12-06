@@ -151,45 +151,57 @@ public class Controller
         }//End of actionPerformed
     }//End of inner class.
 
+    /**
+     * Inner class CreateGameActionListener is used to create a game.
+     */
     private class CreateGameActionListener implements ActionListener
     {
+        /**
+         * Method which listens to buttons in the Create Game menu. If the user presses the home button, he is
+         * returned to the menu and all the text fields are reset and the labels are made hidden.
+         * When the user presses the create game button a check is made whether or not the user has
+         * actually typed a name and controls. If one of these are empty an error label will show.
+         * If the user enters correctly a confirm label will show.
+         * When the game is created the user is set as the host and the game is set to open to allow
+         * a opponent to later join the game.
+         *
+         * @param e is an object of ActionEvent
+         */
         @Override
         public void actionPerformed(ActionEvent e)
         {
-            //Hvis brugeren trykker på Home knap
+            //If the user presses the home button
             if (e.getSource() == screen.getCreateGameScreen().getBtnHome())
             {
+                //Resets text fields and labels
                 screen.getCreateGameScreen().getTxtGameName().setText("");
                 screen.getCreateGameScreen().getTxtControls().setText("");
                 screen.getCreateGameScreen().getLblErrorNoName().setVisible(false);
                 screen.getCreateGameScreen().getLblGameCreated().setVisible(false);
                 screen.show(Screen.MENUSCREEN);
-                //Resetter tekst felter
-
-            }//if slut
-
-
-
-
-            if (e.getSource() == screen.getCreateGameScreen().getBtnCreateGame()){
+            }
+            //If the create game button is pressed
+            if (e.getSource() == screen.getCreateGameScreen().getBtnCreateGame())
+            {
                 if(screen.getCreateGameScreen().getTxtGameName().getText().equals("")
                         ||screen.getCreateGameScreen().getTxtControls().getText().equals(""))
                 {
-                    System.out.print("Can't be empty name");
+                    //If one or more text fields are empty error label will show.
                     screen.getCreateGameScreen().getLblErrorNoName().setVisible(true);
                     screen.getCreateGameScreen().getLblGameCreated().setVisible(false);
                 }
                 else
                 {
-
-
+                    //GameName and moves are set to what the user has typed in the fields
                     String gameName = screen.getCreateGameScreen().getTxtGameName().getText();
                     String moves = screen.getCreateGameScreen().getTxtControls().getText();
 
+                    //A gamer is created and the host is set to currentUser and controls are saved
                     Gamer host = new Gamer();
                     host.setId(currentUser.getId());
                     host.setControls(moves);
 
+                    //A game is created and the host, gameName and map size are set.
                     Game game = new Game();
                     game.setName(gameName);
                     game.setHost(host);
@@ -197,24 +209,27 @@ public class Controller
 
                     int response = logic.createGame(game);
 
+                    //If statement that checks the response code from the server
                     if (response == 201)
                     {
-                        System.out.print("Game has been created");
+                        //If game is created game created label will show
                         screen.getCreateGameScreen().getLblGameCreated().setVisible(true);
                         screen.getCreateGameScreen().getLblErrorNoName().setVisible(false);
                     }
-                    else if (response == 400) {
-                        System.out.print("Game was not created");
+                    else if (response == 400)
+                    {
+                        //If game not created an error label will show
                         screen.getCreateGameScreen().getLblErrorNoName().setVisible(true);
                         screen.getCreateGameScreen().getLblGameCreated().setVisible(false);
                     }
 
 
 
-                }}
+                }
+            }
 
-        }//actionPerformed slut
-    }//inner class slut
+        }//End of actionPerformed
+    }//End of inner class
 
     private class JoinGameActionListener implements ActionListener
     {
