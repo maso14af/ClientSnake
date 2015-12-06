@@ -16,7 +16,9 @@ import javax.swing.SwingConstants;
 import java.awt.event.ActionEvent;
 
 /**
- *
+ * This class contains the DeleteGameScreen GUI, this class has the and getters for all
+ * the textFields and confirm/ error labels used in the Delete Game menu. The logic for the class is in the
+ * controller class in the Logic package.
  *extends JPanel
  */
 public class DeleteGameScreen extends JPanel 
@@ -31,6 +33,10 @@ public class DeleteGameScreen extends JPanel
 	private JLabel lblWrongInput;
     private JLabel lblGameDeleted;
 
+
+    /**
+     * Creation of the Delete Game panel
+     */
 	public DeleteGameScreen()
 	{
 		setLayout(null);

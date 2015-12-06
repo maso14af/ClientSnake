@@ -8,12 +8,13 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 
 /**
- * @author Martin Lusty Sørensen
+ * This class contains the HighScoreScreen GUI, this class has the getters for all
+ * the home Button and JTable. The logic for the class is in the controller class in the Logic package.
  *extends JPanel
  */
 public class HighScoreScreen extends JPanel 
 {
-	//Instantierer variabler
+	//Initializing variables used in this class
 	private JLabel lblHighScore;
 	private JButton btnHome;
 	private JTable table;
@@ -21,9 +22,8 @@ public class HighScoreScreen extends JPanel
 
 
 
-
 	/**
-	 * Create the panel.
+	 * Creation of the High Score panel
 	 */
 	public HighScoreScreen() 
 	{
@@ -31,7 +31,7 @@ public class HighScoreScreen extends JPanel
 		setBackground(new Color(102, 153, 204));
 		setBounds(100, 100, 529, 475);
 
-		//opretter,giver attributter og adder balance label
+		//Creating high score label and adding attributes
 		lblHighScore = new JLabel("High Scores");
 		lblHighScore.setForeground(Color.WHITE);
 		lblHighScore.setHorizontalAlignment(SwingConstants.CENTER);
@@ -39,35 +39,43 @@ public class HighScoreScreen extends JPanel
 		lblHighScore.setBounds(120, 10, 200, 50);
 		add(lblHighScore);
 
-		//opretter,giver attributter og adder home knap
+		//Creating home button and adding attributes as well as image
 		btnHome = new JButton();
 		Image imgHome = new ImageIcon(this.getClass().getResource("/res/btnHome.png")).getImage();
 		btnHome.setIcon(new ImageIcon(imgHome));
 		btnHome.setBounds(16, 10, 42, 38);
 		add(btnHome);
-		
+
+		//Creating JTable and adding attributes
 		table = new JTable();
 		scrollPane = new JScrollPane(table);
 		scrollPane.setBounds(57, 72, 359, 184);
 		add(scrollPane);
 		//add(table);
 
-	}//metode slut	
+	}//End of method
 
 
-
+	/**
+	 * Getter for table
+	 * @return table;
+	 */
 	public JTable getTable() {
 		return table;
 	}
 
+	/**
+	 * Getter for scrollPane
+	 * @return scrollPane
+	 */
 	public JScrollPane getScrollPane() {
 		return scrollPane;
 	}
 
 	
 	/**
-	 * Getter for 
-	 * @return 
+	 * Getter for btnHome
+	 * @return btnHome
 	 */
 	public JButton getBtnHome() 
 	{
@@ -75,11 +83,11 @@ public class HighScoreScreen extends JPanel
 	}//metode slut	
 
 	/**
-	 * opretter actionListernes for dette panel
+	 * Creating action listeners for this panel
 	 * @param l
 	 */
 	public void addActionListener(ActionListener l) 
 	{
 		btnHome.addActionListener(l);
 	}//metode slut	
-}//klasse slut
+}//End of class HighScoreScreen

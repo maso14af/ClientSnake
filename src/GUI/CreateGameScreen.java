@@ -13,8 +13,8 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 /**
- * This class contains the CreateGameScreen GUI, this class has the setters and getters for all
- * the textFields and confirm/ error labels used in the CreateGame menu. The logic for the class is in the
+ * This class contains the CreateGameScreen GUI, this class has the and getters for all
+ * the textFields and confirm/ error labels used in the Create Game menu. The logic for the class is in the
  * controller class in the Logic package.
  *extends JPanel
  */
@@ -32,7 +32,7 @@ public class CreateGameScreen extends JPanel
 	private JLabel lblGameCreated;
 
 	/**
-	 * Creation of the CreateGame panel
+	 * Creation of the Create Game panel
 	 */
 	public CreateGameScreen()
 	{
