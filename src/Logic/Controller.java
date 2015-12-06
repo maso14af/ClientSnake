@@ -9,7 +9,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-
+/**
+ * This class controls everything that happens when interactions are made throughout the program. This class is
+ * what connects the GUI to everything behind. This is done with injections of the actionListeners for each panel
+ * The class is the connection from the frontend to the backend.
+ * The login of users is also authenticated in this class, by verifying that the username and password matches
+ * something in the database. This class has an inner class for each of the Panel actionListeners
+ */
 
 //Start of class
 public class Controller
