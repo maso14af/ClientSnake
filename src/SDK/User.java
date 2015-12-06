@@ -1,7 +1,6 @@
 package SDK;
 
 import java.sql.Date;
-import java.util.Scanner;
 
 /**
  * This class contains is the same as the User class on the server side

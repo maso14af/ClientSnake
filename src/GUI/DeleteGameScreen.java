@@ -1,19 +1,8 @@
 package GUI;
 
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.Image;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionListener;
-import java.io.IOException;
-
-import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.SwingConstants;
-import java.awt.event.ActionEvent;
 
 /**
  * This class contains the DeleteGameScreen GUI, this class has the getters for all

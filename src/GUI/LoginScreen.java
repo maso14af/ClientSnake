@@ -1,14 +1,8 @@
 package GUI;
 
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.JLabel;
-import javax.swing.JButton;
-import java.awt.Color;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionListener;
-import javax.swing.ImageIcon;
-import javax.swing.SwingConstants;
-import javax.swing.JPasswordField;
 
 /**
  * This class contains the LoginScreen GUI, this class has the getters for all

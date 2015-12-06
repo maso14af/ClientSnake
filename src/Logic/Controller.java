@@ -2,17 +2,12 @@ package Logic;
 
 
 import GUI.Screen;
-import SDK.Game;
-import SDK.Logic;
-import SDK.User;
-import SDK.Gamer;
-import SDK.Score;
+import SDK.*;
+
 import javax.swing.table.AbstractTableModel;
-import java.util.ArrayList;
-
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 
 

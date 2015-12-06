@@ -1,11 +1,8 @@
 package GUI;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
-import java.io.IOException;
-
-import javax.imageio.ImageIO;
-import javax.swing.*;
 
 /**
  * This class contains the HighScoreScreen GUI, this class has the getters for all

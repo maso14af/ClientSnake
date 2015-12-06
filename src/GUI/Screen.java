@@ -1,10 +1,8 @@
 package GUI;
 
-import java.awt.CardLayout;
-import java.awt.Color;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+import java.awt.*;
 
 /**
  * This class contains the Screen, this class contains all the other panels and all traffic is gathered and goes
