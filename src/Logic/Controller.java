@@ -285,7 +285,7 @@ public class Controller
                     //Searches for a game by the game name typed by the user
                     for (Game g : logic.openGames())
                     {
-                        //If the game name exists the id of the game is set to the object of game
+                        //For loop for finding an open game with the name that the user has entered
                         if (g.getName().equals(screen.getJoinGameScreen().getTxtGameName().getText()))
                         {
                             game.setGameId(g.getGameId());
@@ -346,8 +346,11 @@ public class Controller
                 //If the user presses the delete game button
                 if (e.getSource() == screen.getDeleteGameScreen().getBtnDeleteGame())
                 {
+                    //Gets the text from gameId text field and parses it to an int so it can be used to delete a game
                     int gameId=Integer.parseInt(screen.getDeleteGameScreen().getTxtGameName().getText());
+                    //Delete request is sent to the server based on the int parsed from the text field
                     int response = logic.deleteGame(gameId);
+                    //If response from server is 200
                     if  (response == 200)
                     {
                         //If the game is deleted a confirm label will show
@@ -355,9 +358,10 @@ public class Controller
                         screen.getDeleteGameScreen().getLblErrorNoGame().setVisible(false);
                         screen.getDeleteGameScreen().getLblWrongInput().setVisible(false);
                     }
+                    //If response from server is 400
                     else if (response == 400)
                     {
-                        //If the game is not deleted an error label will show
+                        //If the game was not deleted an error label will show
                         screen.getDeleteGameScreen().getLblWrongInput().setVisible(false);
                         screen.getDeleteGameScreen().getLblErrorNoGame().setVisible(true);
                         screen.getDeleteGameScreen().getLblGameDeleted().setVisible(false);
@@ -376,20 +380,31 @@ public class Controller
         }//End of actionPerformed
     }//End of inner class
 
+    /**
+     * Innerclass HighScoreActionListener is used to show High Scores
+     */
     private class HighScoreActionListener implements ActionListener
     {
+        /**
+         * Method which listens to the home button, if this button is pressed the user is sent back to the menu
+         * @param e is an object of ActionListener
+         */
         @Override
         public void actionPerformed(ActionEvent e)
         {
-            //Hvis brugeren trykker på Home knap
+            //If the user presses the home button
             if (e.getSource() == screen.getHighScoreScreen().getBtnHome())
             {
+                //The user is sent back to the menu screen
                 screen.show(Screen.MENUSCREEN);
-            }//if slut
+            }
+        }//End of actionPerformed
+    }//End of inner class
 
-        }//actionPerformed slut
-    }//inner class slut
-
+    /**
+     * Inner class HighScoreTableModel is used to retrieve the top 10 scores from the server
+     * Extends AbstractTableModel
+     */
     public class HighScoreTableModel extends AbstractTableModel
     {
         private static final long serialVersionUID = 1L;
@@ -444,12 +459,18 @@ public class Controller
 
             return null;
         }
-    }
+    }//End of inner class
 
+    /**
+     * Method used to show the high scores
+     */
     public void showHighScores()
     {
+        //Retrieves the ArrayList of highScores from the logic class in the SDK package
         ArrayList<Score> highScores = logic.getHighScores();
+        //Creates an object of HighScoreTableModel
         HighScoreTableModel highScoreTableModel = new HighScoreTableModel(highScores);
+        //Sets the high score in the JTable.
         screen.getHighScoreScreen().getTable().setModel(highScoreTableModel);
     }
 }//End of class Controller
