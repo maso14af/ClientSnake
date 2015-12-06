@@ -7,11 +7,14 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 /**
- * Jframe klasse som indeholder alle de andre panels, alt trafikken samles og går igennem denne klasse.nnem denne klasse
+ * This class contains the Screen, this class contains all the other panels and all traffic is gathered and goes
+ * through this class.
+ *extends JFrame
  */
-public class Screen extends JFrame 
+//Start of class
+public class Screen extends JFrame
 {
-	//Tilegener ID
+	//Setting ID's to the panels
 	public static final String LOGINSCREEN = "name_1";
 	public static final String MENUSCREEN = "name_2";
 	public static final String CREATEGAMESCREEN = "name_3";
@@ -20,26 +23,23 @@ public class Screen extends JFrame
 	public static final String JOINGAMESCREEN = "name_6";
 
 
-	//Instantierer variabler
+	//Declaring variables used in this class
 	public LoginScreen loginScreen;
 	private MenuScreen menuScreen;
-	private DeleteGameScreen DeleteGameScreen;
-	private HighScoreScreen HighScoreScreen;
-	private CreateGameScreen CreateGameScreen;
-	private JoinGameScreen JoinGameScreen;
+	private DeleteGameScreen deleteGameScreen;
+	private HighScoreScreen highScoreScreen;
+	private CreateGameScreen createGameScreen;
+	private JoinGameScreen joinGameScreen;
 
-	
-	
-	private CardLayout c;  
-
+	private CardLayout cardLayout;
 	private JPanel contentPane;
 
 	/**
-	 * create the frame
+	 * Creating the frame
 	 */
-	public Screen() 
+	public Screen()
 	{
-		//setter attributter 
+		//Adding attributes for the screen
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 529, 475);
 		contentPane = new JPanel();
@@ -47,85 +47,95 @@ public class Screen extends JFrame
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 
-		//layout sættes til cardlayout
+		//Setting layout to card layout
 		contentPane.setLayout(new CardLayout(0, 0));
 
-		//adder alle panels til dette contentpane
+		//Adding all the panels to this contentPane
 
 		loginScreen = new LoginScreen();
 		contentPane.add(loginScreen, LOGINSCREEN);
 
 		menuScreen = new MenuScreen();
 		contentPane.add(menuScreen,MENUSCREEN);
-		
-		CreateGameScreen = new CreateGameScreen();
-		contentPane.add(CreateGameScreen,CREATEGAMESCREEN);
-		
-		HighScoreScreen = new HighScoreScreen();
-		contentPane.add(HighScoreScreen,HIGHSCORESCREEN);
-		
-		JoinGameScreen = new JoinGameScreen();
-		contentPane.add(JoinGameScreen,JOINGAMESCREEN);
 
-		DeleteGameScreen = new DeleteGameScreen();
-		contentPane.add(DeleteGameScreen,DELETEGAMESCREEN);
+		createGameScreen = new CreateGameScreen();
+		contentPane.add(createGameScreen,CREATEGAMESCREEN);
 
-		c = (CardLayout) getContentPane().getLayout();
-		
-	}//metode slut
+		highScoreScreen = new HighScoreScreen();
+		contentPane.add(highScoreScreen,HIGHSCORESCREEN);
 
+		joinGameScreen = new JoinGameScreen();
+		contentPane.add(joinGameScreen,JOINGAMESCREEN);
 
-	public GUI.CreateGameScreen getCreateGameScreen() {
-		return CreateGameScreen;
+		deleteGameScreen = new DeleteGameScreen();
+		contentPane.add(deleteGameScreen,DELETEGAMESCREEN);
+
+		cardLayout = (CardLayout) getContentPane().getLayout();
+
+	}//End of method
+
+    /**
+     * Getter for createGameScreen
+     * @return createGameScreen
+     */
+	public CreateGameScreen getCreateGameScreen() {
+		return createGameScreen;
 	}
 
 	/**
 	 * Getter for loginScreen
-
 	 * @return loginScreen
 	 */
-	public LoginScreen getLoginScreen() 
+	public LoginScreen getLoginScreen()
 	{
 		return loginScreen;
-	}//metode slut
-	
+	}//
+
 	/**
 	 * Getter for menuScreen
 	 * @return menuScreen
 	 */
-	public MenuScreen getMenuScreen() 
+	public MenuScreen getMenuScreen()
 	{
 		return menuScreen;
-	}//metode slut
+	}//
 
-	public GUI.JoinGameScreen getJoinGameScreen() {
-		return JoinGameScreen;
+    /**
+     * Getter for joinGameScreen
+     * @return joinGameScreen
+     */
+	public JoinGameScreen getJoinGameScreen() {
+		return joinGameScreen;
 	}
 
-	public GUI.HighScoreScreen getHighScoreScreen() {
+    /**
+     * Getter for highScoreScreen
+     * @return highScoreScreen
+     */
+	public HighScoreScreen getHighScoreScreen() {
 
-		return HighScoreScreen;
+		return highScoreScreen;
 	}
 
 	/**
 	 * Getter for deleteGame
-	 * @return DeleteGameScreen
+	 * @return deleteGameScreen
 	 */
-	public DeleteGameScreen getDeleteGameScreen() 
+	public DeleteGameScreen getDeleteGameScreen()
 	{
-		return DeleteGameScreen;
-	}//metode slut
+		return deleteGameScreen;
+	}//
 
 
 	/**
-	 * denne metode sender de forskellige cards til framet.
+	 * This method sends the individual cards to the frame
 	 * @param card
 	 */
-	public void show(String card) 
+	public void show(String card)
 	{
-		c.show(this.getContentPane(), card);
-	}//metode slut
+		cardLayout.show(this.getContentPane(), card);
+	}//End of method
 
 
-	
-}//klasse slut
+
+}//End of class Screen
