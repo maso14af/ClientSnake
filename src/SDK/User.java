@@ -3,14 +3,14 @@ package SDK;
 import java.sql.Date;
 import java.util.Scanner;
 
-
 /**
- * Created by Oscar on 12-10-2015.
+ * This class contains is the same as the User class on the server side
+ * This class represents an object of a user with all the attributes of a user
  */
-//
-public class User {
+public class User
+{
 
-    //creating variables
+    //Declaring variables used in this class
     private int id;
     private String firstName;
     private String lastName;
@@ -22,78 +22,167 @@ public class User {
     private int type;
     public User () {}
 
-    //creating get and set method for all the variables, so they can be used by other classes
+    //Creating get and setter methods for all variables, so they can be accessed by other classes
 
-
-    public int getId() {
+    /**
+     * Getter for
+     * @return id
+     */
+    public int getId()
+    {
         return id;
     }
 
-    public void setId(int id) {
+    /**
+     * Setter for id
+     * @param id sets the id for a user object
+     */
+    public void setId(int id)
+    {
         this.id = id;
     }
 
-    public String getFirstName() {
+    /**
+     * Getter for firstName
+     * @return firstName
+     */
+    public String getFirstName()
+    {
         return firstName;
     }
 
-    public void setFirstName(String firstName) {
+    /**
+     * Setter for firstName
+     * @param firstName sets the first name for a user object
+     */
+    public void setFirstName(String firstName)
+    {
         this.firstName = firstName;
     }
 
-    public String getLastName() {
+    /**
+     * Getter for lastName
+     * @return lastName
+     */
+    public String getLastName()
+    {
         return lastName;
     }
 
-    public void setLastName(String lastName) {
+    /**
+     * Setter for lastName
+     * @param lastName sets the last name for a user object
+     */
+    public void setLastName(String lastName)
+    {
         this.lastName = lastName;
     }
 
-    public String getUsername() {
+    /**
+     * Getter for username
+     * @return username;
+     */
+    public String getUsername()
+    {
         return username;
     }
 
-    public void setUsername(String username) {
+    /**
+     * Setter for username
+     * @param username sets the username for a user object
+     */
+    public void setUsername(String username)
+    {
         this.username = username;
     }
 
-    public String getPassword() {
+    /**
+     * Getter for password
+     * @return password
+     */
+    public String getPassword()
+    {
         return password;
     }
 
-    public void setPassword(String password) {
+    /**
+     * Setter for password
+     * @param password sets the password for a user object
+     */
+    public void setPassword(String password)
+    {
         this.password = password;
     }
 
-    public Date getCreated() {
+    /**
+     * Getter for created
+     * @return created
+     */
+    public Date getCreated()
+    {
         return created;
     }
 
-    public void setCreated(Date created) {
+    /**
+     * Setter for created
+     * @param created sets the created for a user object
+     */
+    public void setCreated(Date created)
+    {
         this.created = created;
     }
 
-    public String getStatus() {
+    /**
+     * Getter for status
+     * @return status
+     */
+    public String getStatus()
+    {
         return status;
     }
 
-    public void setStatus(String status) {
+    /**
+     * Setter for status
+     * @param status sets the status for a user object
+     */
+    public void setStatus(String status)
+    {
         this.status = status;
     }
 
-    public String getEmail() {
+    /**
+     * Getter for email
+     * @return email
+     */
+    public String getEmail()
+    {
         return email;
     }
 
-    public void setEmail(String email) {
+    /**
+     * Setter for email
+     * @param email sets the email for a user object
+     */
+    public void setEmail(String email)
+    {
         this.email = email;
     }
 
-    public int getType() {
+    /**
+     * Getter for type
+     * @return type
+     */
+    public int getType()
+    {
         return type;
     }
 
-    public void setType(int type) {
+    /**
+     * Setter for type
+     * @param type sets the type for a user object
+     */
+    public void setType(int type)
+    {
         this.type = type;
     }
-}
+}//End of class User
