@@ -100,8 +100,9 @@ public class Logic
     }
 
     /**
-     * Getter for highScores, is done making a get request to the server and return all highScores and
-     * putting them in an ArrayList so they can be used in the JTable to show it to the user.
+     * Getter for highScores, it is done by making a get request to the server on path highScores/
+     * and returning highScores and putting them in an ArrayList
+     * so they can be used in the JTable to show it to the user.
      * @return highScores
      */
     public ArrayList<Score> getHighScores()
