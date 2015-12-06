@@ -77,8 +77,7 @@ public class ServerConnection
 
         WebResource webResource = client.resource(getHostAddress() + ":" + getPort() + "/api/" + path);
         ClientResponse response = webResource.type("application/json").post(ClientResponse.class, json);
-        String output = response.getEntity(String.class);
-        System.out.println(output);
+
 
         int responser = response.getStatus();
 
@@ -98,8 +97,7 @@ public class ServerConnection
 
         WebResource webResource = client.resource(getHostAddress() + ":" + getPort() + "/api/" + path);
         ClientResponse response = webResource.type("application/json").put(ClientResponse.class, json);
-        String output = response.getEntity(String.class);
-        System.out.println(output);
+
 
         int responser = response.getStatus();
 
@@ -118,8 +116,7 @@ public class ServerConnection
 
         WebResource webResource = client.resource(getHostAddress() + ":" + getPort() + "/api/" + path);
         ClientResponse response = webResource.type("application/json").delete(ClientResponse.class);
-        String output = response.getEntity(String.class);
-        System.out.println(output);
+
 
         int responser = response.getStatus();
 
