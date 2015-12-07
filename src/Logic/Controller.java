@@ -126,7 +126,6 @@ public class Controller
             if (e.getSource() == screen.getMenuScreen().getBtnCreateGame())
             {
                 screen.show(Screen.CREATEGAMESCREEN);
-                System.out.print(currentUser.getId());
             }
             //If the user presses the delete game button
             if (e.getSource() == screen.getMenuScreen().getBtnDeleteGame())
