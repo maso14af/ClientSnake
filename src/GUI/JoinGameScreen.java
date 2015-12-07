@@ -73,7 +73,7 @@ public class JoinGameScreen extends JPanel
 		//Creating hidden game joined confirm label and adding attributes
 		lblGameJoined = new JLabel("Game joined");
 		lblGameJoined.setHorizontalAlignment(SwingConstants.CENTER);
-		lblGameJoined.setForeground(Color.RED);
+		lblGameJoined.setForeground(Color.GREEN);
 		lblGameJoined.setBounds(157, 252, 267, 28);
 		lblGameJoined.setVisible(false);
 		add(lblGameJoined);

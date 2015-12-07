@@ -79,7 +79,7 @@ public class DeleteGameScreen extends JPanel
         //Creating game deleted confirm label and adding attributes
         lblGameDeleted = new JLabel("Game deleted");
         lblGameDeleted.setHorizontalAlignment(SwingConstants.CENTER);
-        lblGameDeleted.setForeground(Color.RED);
+        lblGameDeleted.setForeground(Color.GREEN);
         lblGameDeleted.setBounds(157, 252, 267, 28);
         lblGameDeleted.setVisible(false);
         add(lblGameDeleted);
