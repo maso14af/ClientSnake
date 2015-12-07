@@ -72,7 +72,7 @@ public class CreateGameScreen extends JPanel
 		//Creating hidden game created label and adding attributes
 		lblGameCreated = new JLabel("Game created");
 		lblGameCreated.setHorizontalAlignment(SwingConstants.CENTER);
-		lblGameCreated.setForeground(Color.RED);
+		lblGameCreated.setForeground(Color.GREEN);
 		lblGameCreated.setBounds(157, 290, 267, 28);
 		lblGameCreated.setVisible(false);
 		add(lblGameCreated);
