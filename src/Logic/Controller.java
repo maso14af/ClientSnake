@@ -407,6 +407,19 @@ public class Controller
     }//End of inner class
 
     /**
+     * Method used to show the high scores
+     */
+    public void showHighScores()
+    {
+        //Retrieves the ArrayList of highScores from the logic class in the SDK package
+        ArrayList<Score> highScores = logic.getHighScores();
+        //Creates an object of HighScoreTableModel
+        HighScoreTableModel highScoreTableModel = new HighScoreTableModel(highScores);
+        //Sets the high score in the JTable.
+        screen.getHighScoreScreen().getTable().setModel(highScoreTableModel);
+    }
+
+    /**
      * Inner class HighScoreTableModel is used to retrieve the top 10 scores from the server.
      * Class is used to get the variables that are needed to form the JTable with the high scores.
      * In this class it is also set which attributes are to be shown in the JTable, here Username and Score are
@@ -490,22 +503,10 @@ public class Controller
                     return highScores.get(rowIndex).getGame().getWinner().getUsername();
                 case 1:
                     return highScores.get(rowIndex).getScore();
+
             }
 
             return null;
         }
     }//End of inner class
-
-    /**
-     * Method used to show the high scores
-     */
-    public void showHighScores()
-    {
-        //Retrieves the ArrayList of highScores from the logic class in the SDK package
-        ArrayList<Score> highScores = logic.getHighScores();
-        //Creates an object of HighScoreTableModel
-        HighScoreTableModel highScoreTableModel = new HighScoreTableModel(highScores);
-        //Sets the high score in the JTable.
-        screen.getHighScoreScreen().getTable().setModel(highScoreTableModel);
-    }
 }//End of class Controller
